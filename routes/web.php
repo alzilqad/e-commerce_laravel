@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\accessController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,7 +15,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('register.register');
+    return view('clientModule.home.index');
 });
+
+Route::get('/register', [accessController::class, 'showRegisterPage'])->name('register.index');
 
 
