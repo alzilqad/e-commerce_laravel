@@ -5,9 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class User extends Model
+class SubCategory extends Model
 {
     use HasFactory;
-    protected $table = 'users';
+    protected $table = 'category_sub_product';
     public $timestamps = false;
 }

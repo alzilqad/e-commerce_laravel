@@ -47,6 +47,7 @@
                     </div>
                 </div>
             </div>
+
             <div id="login-modal" tabindex="-1" role="dialog" aria-labelledby="Login" aria-hidden="true" class="modal fade">
                 <div class="modal-dialog modal-sm">
                     <div class="modal-content">
@@ -237,14 +238,22 @@
                     </ul>
                     <div class="navbar-buttons d-flex justify-content-end">
                         <!-- /.nav-collapse-->
-                        <div id="search-not-mobile" class="navbar-collapse collapse"></div><a data-toggle="collapse" href="#search" class="btn navbar-btn btn-primary d-none d-lg-inline-block"><span class="sr-only">Toggle search</span><i class="fa fa-search"></i></a>
+                        <form role="search" class="ml-auto">
+                            <div class="input-group" style="padding: 10px">
+                                <input type="text" placeholder="Search" class="form-control">
+                                <div class="input-group-append">
+                                    <button type="button" class="btn btn-primary"><i class="fa fa-search"></i></button>
+                                </div>
+                            </div>
+                        </form>
+                        <!-- <div id="search-not-mobile" class="navbar-collapse collapse"></div><a data-toggle="collapse" href="#search" class="btn navbar-btn btn-primary d-none d-lg-inline-block"><span class="sr-only">Toggle search</span><i class="fa fa-search"></i></a> -->
                         <div id="basket-overview" class="navbar-collapse collapse d-none d-lg-block"><a href="basket.html" class="btn btn-primary navbar-btn"><i class="fa fa-shopping-cart"></i><span>3 items in cart</span></a></div>
                     </div>
                 </div>
             </div>
         </nav>
 
-        <div id="search" class="collapse">
+        <!-- <div id="search" class="collapse">
             <div class="container">
                 <form role="search" class="ml-auto">
                     <div class="input-group">
@@ -255,5 +264,5 @@
                     </div>
                 </form>
             </div>
-        </div>
+        </div> -->
     </header>
