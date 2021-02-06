@@ -4,7 +4,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\accessController;
 use App\Http\Controllers\homeController;
 use App\Http\Controllers\clientModule\categoryController;
-use App\Http\Controllers\clientModule\subcategoryController;
 use App\Http\Controllers\clientModule\productController;
 use App\Http\Controllers\clientModule\cartController;
 use App\Http\Controllers\clientModule\userController;
@@ -21,11 +20,16 @@ use App\Http\Controllers\clientModule\userController;
 */
 
 Route::get('/', [homeController::class, 'index'])->name('home.index');
-Route::get('/register', [accessController::class, 'showRegisterPage'])->name('register.index');
 
-Route::get('/category', [categoryController::class, 'index'])->name('category.index');
-Route::get('/subcategory', [subcategoryController::class, 'index'])->name('subcat.index');
-Route::get('/product', [productController::class, 'index'])->name('product.index');
+Route::get('/registration', [accessController::class, 'showRegisterPage'])->name('register.index');
+
+Route::get('/category/{category}', [categoryController::class, 'singularCategoryPage'])->name('category.singular');
+Route::get('/category', [categoryController::class, 'multipleCategoryPage'])->name('category.multiple');
+Route::get('/new', [categoryController::class, 'newArrivalPage'])->name('category.new');
+Route::get('/offer', [categoryController::class, 'offerPage'])->name('category.offer');
+
+Route::get('/product/{product}', [productController::class, 'index'])->name('product.index');
+
 Route::get('/cart', [cartController::class, 'index'])->name('cart.index');
 
 Route::get('/user', [userController::class, 'profile'])->name('user.profile');

@@ -290,10 +290,10 @@ h1 {
 #hot h2 {
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  font-size: 2.25rem;
+  font-size: 1.7rem;
   color: #4fbfa8;
   font-weight: 100;
-  text-align: center;
+  text-align: left;
 }
 
 #hot .product-slider {
@@ -367,6 +367,7 @@ h1 {
 *
 */
 #main-slider {
+  margin-bottom: 30px;
   border: solid 1px #fff;
   -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);

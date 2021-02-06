@@ -1,1 +1,34 @@
 /* your styles go here */
+
+ul.submenu {
+    color: #4fbfa8;
+    display: none;
+}
+
+/*show the submenu when input is checked*/
+input:checked ~ ul.submenu {
+    color: #4fbfa8;
+    display: block;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 20px;
+    width: 100%;
+    object-fit: cover;
+}
+/* 
+input[type=checkbox] {
+    visibility: hidden;
+} */
+
+.custom-checkbox {
+    background-color: #2196F3;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    outline: none;
+}
