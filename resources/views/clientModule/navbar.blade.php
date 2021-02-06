@@ -8,13 +8,17 @@
 
             @foreach ($categories as $category)
             <li>
-                <a for="check{{$category->id}}" href="{{route('category.singular', $category->name_en)}}" class="nav-link">{{$category->name_en}} <span class="badge badge-secondary">42</span> </a>
+                <a for="check{{$category->id}}" href="{{route('category.singular', $category->name_en)}}" class="nav-link">{{$category->name_en}}
+                    <span class="badge badge-primary">
+                        <label for="check{{$category->id}}" class="menu"></label>
+                    </span>
+                </a>
                 <input id="check{{$category->id}}" type="checkbox" name="menu" />
-                                
+
                 <!-- <button class="custom-checkbox">
                     <i class="fa fa-caret-down"></i>
                 </button> -->
-                
+
                 <ul class="submenu">
                     @foreach ($subCategories as $subCategory)
                     @if($subCategory->category_id==$category->id)

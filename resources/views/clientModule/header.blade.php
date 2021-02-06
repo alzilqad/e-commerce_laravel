@@ -36,7 +36,7 @@
 
         <div class="fixed-top">
             <nav class="navbar navbar-expand-lg">
-                <div class="container"><a href="index.html" class="navbar-brand home"><img src="{{asset('img/logo.png')}}" alt="Obaju logo" class="d-none d-md-inline-block"><img src="{{asset('img/logo-small.png')}}" alt="Obaju logo" class="d-inline-block d-md-none"><span class="sr-only">Obaju - go to homepage</span></a>
+                <div class="container"><a href="{{route('home.index')}}" class="navbar-brand home"><img src="{{asset('img/logo.png')}}" alt="Obaju logo" class="d-none d-md-inline-block"><img src="{{asset('img/logo-small.png')}}" alt="Obaju logo" class="d-inline-block d-md-none"><span class="sr-only">Obaju - go to homepage</span></a>
                     <div class="navbar-buttons">
                         <button type="button" data-toggle="collapse" data-target="#navigation" class="btn btn-outline-secondary navbar-toggler"><span class="sr-only">Toggle navigation</span><i class="fa fa-align-justify"></i></button>
                         <button type="button" data-toggle="collapse" data-target="#search" class="btn btn-outline-secondary navbar-toggler"><span class="sr-only">Toggle search</span><i class="fa fa-search"></i></button><a href="basket.html" class="btn btn-outline-secondary navbar-toggler"><i class="fa fa-shopping-cart"></i></a>
