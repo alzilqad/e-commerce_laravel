@@ -292,7 +292,7 @@ h1 {
   letter-spacing: 0.1em;
   font-size: 1.7rem;
   color: #4fbfa8;
-  font-weight: 100;
+  font-weight: 500;
   text-align: left;
 }
 
@@ -611,6 +611,7 @@ h1 {
 
 #content .card.sidebar-menu .badge-light {
   color: #4fbfa8;
+
 }
 
 #content .card.sidebar-menu .card {
@@ -2385,6 +2386,8 @@ a.text-dark:hover, a.text-dark:focus {
 .badge-primary {
   color: #212529;
   background-color: #4fbfa8;
+  width: 25px;
+  height: 25px;
 }
 
 .badge-primary[href]:hover, .badge-primary[href]:focus {

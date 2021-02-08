@@ -37,7 +37,18 @@ class categoryController extends Controller
 
     public function multipleCategoryPage(Request $req)
     {
-        
+        $categories = Category::all();
+        $subCategories = SubCategory::all();
+        $products = DB::table('products')
+            ->leftJoin('product_image', 'product_image.product_id', '=', 'products.id')
+            ->where('products.stock_status', 1)
+            ->where('products.active_status', 1)
+            ->where('products.verify_status', 1)
+            ->orderBy('products.create_at', 'desc')
+            ->get();
+
+        $activeCategory = null;
+        return view('clientModule.category.category-multiple', compact('categories', 'subCategories', 'products', 'activeCategory'));
     }
 
     public function newArrivalPage(Request $req)
@@ -53,7 +64,8 @@ class categoryController extends Controller
             ->get();
 
         $page = "New Arrival";
-        return view('clientModule.category.newpage', compact('categories', 'subCategories', 'products', 'page'));
+        $activeCategory = null;
+        return view('clientModule.category.newpage', compact('categories', 'subCategories', 'products', 'page', 'activeCategory'));
     }
 
     public function offerPage(Request $req)
@@ -69,7 +81,7 @@ class categoryController extends Controller
             ->get();
 
         $page = "Best Offer";
-        return view('clientModule.category.offerpage', compact('categories', 'subCategories', 'products', 'page'));
+        $activeCategory = null;
+        return view('clientModule.category.offerpage', compact('categories', 'subCategories', 'products', 'page', 'activeCategory'));
     }
-
 }

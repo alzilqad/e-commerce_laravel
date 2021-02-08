@@ -22,6 +22,7 @@ class homeController extends Controller
             ->orderBy('products.create_at', 'desc')
             ->get();
 
-        return view('clientModule.home.index', compact('categories', 'subCategories', 'products'));
+        $activeCategory = null;
+        return view('clientModule.home.index', compact('categories', 'subCategories', 'products', 'activeCategory'));
     }
 }

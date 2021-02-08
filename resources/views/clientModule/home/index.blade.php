@@ -32,8 +32,19 @@
                         <div class="box py-0">
                             <div class="container">
                                 <div class="row">
-                                    <div class="col-md-12">
-                                        <h2 class="mb-0">Categories</h2>
+                                    <div class="col-md-11">
+                                        <a href="{{route('category.multiple')}}">
+                                            <h2 class="mb-0">Categories</h2>
+                                        </a>
+                                    </div>
+                                    <div class="col-md-1">
+                                        <a href="{{route('category.multiple')}}">
+                                            <span class="badge see-more">
+                                                <h7>More
+                                                    <img src="{{asset('img/icons/right-arrow.png')}}" alt="" style="width:10px; height:10px;">
+                                                </h7>
+                                            </span>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
@@ -73,9 +84,20 @@
                         <div class="box py-0">
                             <div class="container">
                                 <div class="row">
-                                    <a href="{{route('category.new')}}">
-                                        <h2 class="mb-0">New Arrival</h2>
-                                    </a>
+                                    <div class="col-md-11">
+                                        <a href="{{route('category.new')}}">
+                                            <h2 class="mb-0">New Arrival</h2>
+                                        </a>
+                                    </div>
+                                    <div class="col-md-1">
+                                        <a href="{{route('category.new')}}">
+                                            <span class="badge see-more">
+                                                <h7>More
+                                                    <img src="{{asset('img/icons/right-arrow.png')}}" alt="" style="width:10px; height:10px;">
+                                                </h7>
+                                            </span>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -139,9 +161,18 @@
                         <div class="box py-0">
                             <div class="container">
                                 <div class="row">
-                                    <div class="col-md-12">
+                                    <div class="col-md-11">
                                         <a href="{{route('category.offer')}}">
                                             <h2 class="mb-0">Best Offer</h2>
+                                        </a>
+                                    </div>
+                                    <div class="col-md-1">
+                                        <a href="{{route('category.offer')}}">
+                                            <span class="badge see-more">
+                                                <h7>More
+                                                    <img src="{{asset('img/icons/right-arrow.png')}}" alt="" style="width:10px; height:10px;">
+                                                </h7>
+                                            </span>
                                         </a>
                                     </div>
                                 </div>
@@ -212,9 +243,18 @@
                         <div class="box py-0">
                             <div class="container">
                                 <div class="row">
-                                    <div class="col-md-12">
+                                    <div class="col-md-11">
                                         <a href="{{route('category.singular', $category->name_en)}}">
                                             <h2 class="mb-0">{{$category->name_en}}</h2>
+                                        </a>
+                                    </div>
+                                    <div class="col-md-1">
+                                        <a href="{{route('category.singular', $category->name_en)}}">
+                                            <span class="badge see-more">
+                                                <h7>More
+                                                    <img src="{{asset('img/icons/right-arrow.png')}}" alt="" style="width:10px; height:10px;">
+                                                </h7>
+                                            </span>
                                         </a>
                                     </div>
                                 </div>

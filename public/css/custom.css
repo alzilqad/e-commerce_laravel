@@ -22,6 +22,8 @@ input:checked ~ ul.submenu {
 
 input[type="checkbox"] {
     visibility: hidden;
+    width: 0;
+    height: 0;
 }
 
 .menu {
@@ -30,8 +32,35 @@ input[type="checkbox"] {
     border: solid black;
     border-width: 0 3px 3px 0;
     display: inline-block;
-    padding: 5px;
+    padding: 5px 5px !important;
     transform: rotate(45deg);
     -webkit-transform: rotate(45deg);
+}
 
+.arrow {
+    width: 10px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 5px 5px !important;
+    transform: rotate(315deg);
+    -webkit-transform: rotate(315deg);
+}
+
+.see-more {
+    color: #212529;
+    background-color: #4fbfa8;
+    width: 65px;
+    height: 40px;
+}
+
+h7,
+.h7 {
+    margin-bottom: 0.5rem;
+    font-family: inherit;
+    font-weight: 500;
+    font-size: 1rem;
+    line-height: 2;
+    color: white;
 }

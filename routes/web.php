@@ -23,8 +23,8 @@ Route::get('/', [homeController::class, 'index'])->name('home.index');
 
 Route::get('/registration', [accessController::class, 'showRegisterPage'])->name('register.index');
 
-Route::get('/category/{category}', [categoryController::class, 'singularCategoryPage'])->name('category.singular');
 Route::get('/category', [categoryController::class, 'multipleCategoryPage'])->name('category.multiple');
+Route::get('/category/{category}', [categoryController::class, 'singularCategoryPage'])->name('category.singular');
 Route::get('/new', [categoryController::class, 'newArrivalPage'])->name('category.new');
 Route::get('/offer', [categoryController::class, 'offerPage'])->name('category.offer');
 

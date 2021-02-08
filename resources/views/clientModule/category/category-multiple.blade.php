@@ -13,7 +13,6 @@
           <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li aria-current="page" class="breadcrumb-item active">{{$activeCategory->name_en}}</li>
             </ol>
           </nav>
         </div>
@@ -68,24 +67,40 @@
 
         <div class="col-lg-9">
 
-          <div class="box">
-            <h1>{{$activeCategory->name_en}}</h1>
-            <p>{{$activeCategory->description}}</p>
+          @foreach ($categories as $category)
 
-            <div class="item"><img src="{{asset($activeCategory->image)}}" alt="" class="center" style="height: 400px;"></adiv>
+          <!-- category details -->
+          <div class="box">
+            <a href="{{route('category.singular', $category->name_en)}}">
+              <h1>{{$category->name_en}}</h1>
+            </a>
+            <p>{{$category->description}}</p>
+
+            <div class="item"><img src="{{asset($category->cover_image)}}" alt="" class="center" style="height: 400px"></div>
 
           </div>
 
+
           <!-- subcategory product view -->
           @foreach ($subCategories as $subCategory)
-          @if($subCategory->category_id==$activeCategory->id)
+          @if($subCategory->category_id==$category->id)
+
           <div id="hot">
             <div class="box py-0">
               <div class="container">
                 <div class="row">
-                  <div class="col-md-12">
+                  <div class="col-md-11">
                     <a href="{{route('category.singular', $subCategory->name_en)}}">
                       <h2 class="mb-0">{{$subCategory->name_en}}</h2>
+                    </a>
+                  </div>
+                  <div class="col-md-1">
+                    <a href="{{route('category.singular', $subCategory->name_en)}}">
+                      <span class="badge see-more">
+                        <h7>More
+                          <img src="{{asset('img/icons/right-arrow.png')}}" alt="" style="width:10px; height:10px;">
+                        </h7>
+                      </span>
                     </a>
                   </div>
                 </div>
@@ -102,20 +117,20 @@
                   @if($product->image_link==null)
                   <div class="flip-container">
                     <div class="flipper">
-                      <div class="front"><a href="detail.html"><img src="{{asset('img/error.jpg')}}" alt="" class="img-fluid" style="height: 200px; width: 100%; object-fit: cover;"></a></div>
-                      <div class="back"><a href="detail.html"><img src="{{asset('img/error.jpg')}}" alt="" class="img-fluid" style="height: 200px; width: 100%; object-fit: cover;"></a></div>
+                      <div class="front"><a href="{{route('product.index', $product->name_en)}}"><img src="{{asset('img/error.jpg')}}" alt="" class="img-fluid" style="height: 200px; width: 100%; object-fit: cover;"></a></div>
+                      <div class="back"><a href="{{route('product.index', $product->name_en)}}"><img src="{{asset('img/error.jpg')}}" alt="" class="img-fluid" style="height: 200px; width: 100%; object-fit: cover;"></a></div>
                     </div>
-                  </div><a href="detail.html" class="invisible"><img src="{{asset('img/error.jpg')}}" alt="" class="img-fluid" style="height: 200px; width: 100%; object-fit: cover;"></a>
+                  </div><a href="{{route('product.index', $product->name_en)}}" class="invisible"><img src="{{asset('img/error.jpg')}}" alt="" class="img-fluid" style="height: 200px; width: 100%; object-fit: cover;"></a>
                   @else
                   <div class="flip-container">
                     <div class="flipper">
-                      <div class="front"><a href="detail.html"><img src="{{asset($product->image_link)}}" alt="" class="img-fluid" style="height: 200px; width: 100%; object-fit: cover;"></a></div>
-                      <div class="back"><a href="detail.html"><img src="{{asset($product->image_link)}}" alt="" class="img-fluid" style="height: 200px; width: 100%; object-fit: cover;"></a></div>
+                      <div class="front"><a href="{{route('product.index', $product->name_en)}}"><img src="{{asset($product->image_link)}}" alt="" class="img-fluid" style="height: 200px; width: 100%; object-fit: cover;"></a></div>
+                      <div class="back"><a href="{{route('product.index', $product->name_en)}}"><img src="{{asset($product->image_link)}}" alt="" class="img-fluid" style="height: 200px; width: 100%; object-fit: cover;"></a></div>
                     </div>
-                  </div><a href="detail.html" class="invisible"><img src="{{asset($product->image_link)}}" alt="" class="img-fluid" style="height: 200px; width: 100%; object-fit: cover;"></a>
+                  </div><a href="{{route('product.index', $product->name_en)}}" class="invisible"><img src="{{asset($product->image_link)}}" alt="" class="img-fluid" style="height: 200px; width: 100%; object-fit: cover;"></a>
                   @endif
                   <div class="text">
-                    <h3><a href="detail.html">{{$product->name_en}}</a></h3>
+                    <h3><a href="{{route('product.index', $product->name_en)}}">{{$product->name_en}}</a></h3>
                     <p class="price">
                       @if($product->discount>0)
                       <del>${{$product->original_price}}</del>
@@ -160,7 +175,10 @@
             <!-- /#hot-->
             <!-- *** HOT END ***-->
           </div>
+
           @endif
+          @endforeach
+
           @endforeach
 
           <div class="box info-bar">
@@ -183,7 +201,6 @@
           <div class="row products">
 
             @foreach ($products->sortByDesc('create_at') as $product)
-            @if($product->category_product_id==$activeCategory->id)
 
             <div class="col-lg-3 col-md-6">
               <div class="product">
@@ -219,24 +236,10 @@
               <!-- /.product            -->
             </div>
 
-            @endif
             @endforeach
             <!-- /.products-->
           </div>
-          <!-- <div class="pages">
-            <p class="loadMore"><a href="#" class="btn btn-primary btn-lg"><i class="fa fa-chevron-down"></i> Load more</a></p>
-            <nav aria-label="Page navigation example" class="d-flex justify-content-center">
-              <ul class="pagination">
-                <li class="page-item"><a href="#" aria-label="Previous" class="page-link"><span aria-hidden="true">«</span><span class="sr-only">Previous</span></a></li>
-                <li class="page-item active"><a href="#" class="page-link">1</a></li>
-                <li class="page-item"><a href="#" class="page-link">2</a></li>
-                <li class="page-item"><a href="#" class="page-link">3</a></li>
-                <li class="page-item"><a href="#" class="page-link">4</a></li>
-                <li class="page-item"><a href="#" class="page-link">5</a></li>
-                <li class="page-item"><a href="#" aria-label="Next" class="page-link"><span aria-hidden="true">»</span><span class="sr-only">Next</span></a></li>
-              </ul>
-            </nav>
-          </div> -->
+
         </div>
         <!-- /.col-lg-9-->
 
