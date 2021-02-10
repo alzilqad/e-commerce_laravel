@@ -13,15 +13,17 @@
           <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li aria-current="page" class="breadcrumb-item active">{{$activeCategory->name_en}}</li>
+              @if($parentSubCategory!=null)
+              <li aria-current="page" class="breadcrumb-item active">{{$parentSubCategory->name_en}}</li>
+              @endif
+              <li aria-current="page" class="breadcrumb-item active">{{$activeSubCategory->name_en}}</li>
             </ol>
           </nav>
         </div>
 
+        <!-- *** MENUS AND FILTERS *** -->
         <div class="col-lg-3" style="padding-left: 30px">
-          <!--
-              *** MENUS AND FILTERS ***
-              _________________________________________________________
-              -->
 
           <!-- Category -->
           @include('clientModule.navbar.navbar')
@@ -60,41 +62,37 @@
             </div>
           </div>
 
-          <!-- *** MENUS AND FILTERS END ***-->
           <!-- <div class="banner"><a href="#"><img src="img/banner.jpg" alt="sales 2014" class="img-fluid"></a></div> -->
         </div>
+        <!-- *** MENUS AND FILTERS END ***-->
 
 
         <div class="col-lg-9">
 
-          @foreach ($categories as $category)
-
           <!-- category details -->
           <div class="box" style="padding: 30px">
-            <a href="{{route('category.singular', $category->name_en)}}">
-              <h1>{{$category->name_en}}</h1>
-            </a>
-            <p>{{$category->description}}</p>
+            <h1>{{$activeSubCategory->name_en}}</h1>
+            <p>{{$activeSubCategory->description}}</p>
 
-            <div class="item"><img src="{{asset($category->cover_image)}}" alt="" class="center" style="height: 400px"></div>
+            <div class="item"><img src="{{asset($activeSubCategory->cover_image)}}" alt="" class="center" style="height: 400px"></div>
 
           </div>
 
           <!-- subcategory product view -->
           @foreach ($subCategories as $subCategory)
-          @if($subCategory->category_id==$category->id && $subCategory->sub_category_id==0)
-
+          @if($subCategory->sub_category_id==$activeSubCategory->id)
           <div id="hot">
             <div class="box py-0">
               <div class="container">
                 <div class="row">
+                  @if($parentSubCategory==null)
                   <div class="col-md-11">
-                    <a href="{{route('category.sub', ['category' => $category->name_en, 'subCategory' => $subCategory->name_en])}}">
+                    <a href="{{route('category.sub2', ['category' => $activeCategory->name_en, 'subCategory' => $activeSubCategory->name_en, 'subCategory2' => $subCategory->name_en])}}">
                       <h2 class="mb-0">{{$subCategory->name_en}}</h2>
                     </a>
                   </div>
                   <div class="col-md-1">
-                    <a href="{{route('category.sub', ['category' => $category->name_en, 'subCategory' => $subCategory->name_en])}}">
+                    <a href="{{route('category.sub2', ['category' => $activeCategory->name_en, 'subCategory' => $activeSubCategory->name_en, 'subCategory2' => $subCategory->name_en])}}">
                       <span class="badge see-more">
                         <h7>More
                           <img src="{{asset('img/icons/right-arrow.png')}}" alt="" style="width:10px; height:10px;">
@@ -102,14 +100,29 @@
                       </span>
                     </a>
                   </div>
+                  @else
+                  <div class="col-md-11">
+                    <a href="{{route('category.sub3', ['category' => $activeCategory->name_en, 'subCategory' => $parentSubCategory->name_en, 'subCategory2' => $activeSubCategory->name_en, 'subCategory3' => $subCategory->name_en])}}">
+                      <h2 class="mb-0">{{$subCategory->name_en}}</h2>
+                    </a>
+                  </div>
+                  <div class="col-md-1">
+                  <a href="{{route('category.sub3', ['category' => $activeCategory->name_en, 'subCategory' => $parentSubCategory->name_en, 'subCategory2' => $activeSubCategory->name_en, 'subCategory3' => $subCategory->name_en])}}">
+                      <span class="badge see-more">
+                        <h7>More
+                          <img src="{{asset('img/icons/right-arrow.png')}}" alt="" style="width:10px; height:10px;">
+                        </h7>
+                      </span>
+                    </a>
+                  </div>
+                  @endif
                 </div>
               </div>
             </div>
-
             <div class="product-slider owl-carousel owl-theme">
 
               @foreach ($products as $product)
-              @if($product->category_sub_product_id==$subCategory->id)
+              @if($product->category_sub_product_id==$activeSubCategory->id)
 
               <div class="item">
                 <div class="product">
@@ -169,29 +182,27 @@
               <!-- /.product-slider-->
             </div>
 
-
-
             <!-- /#hot-->
             <!-- *** HOT END ***-->
           </div>
-
           @endif
           @endforeach
 
-          @endforeach
-
           <div class="box" style="padding: 30px">
-            <!-- product collection view -->
+            <!-- product details -->
             @include('clientModule.product-collection.product-topbar')
+            <!-- product view -->
             <div class="row products">
 
               @foreach ($products->sortByDesc('create_at') as $product)
+              @if($product->category_product_id==$activeCategory->id && $product->category_sub_product_id==$activeSubCategory->id)
 
               @include('clientModule.product-collection.product-view')
 
+              @endif
               @endforeach
-              <!-- /.products-->
             </div>
+            <!-- end product view-->
           </div>
 
         </div>

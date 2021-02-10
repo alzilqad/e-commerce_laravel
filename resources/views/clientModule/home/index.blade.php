@@ -5,7 +5,6 @@
 <div id="all">
     <div id="content">
         <div class="box py-4">
-
             <div class="row">
 
                 <!-- Sliders -->
@@ -20,8 +19,8 @@
                 </div>
 
                 <!-- left bar for category navigation -->
-                <div class="col-lg-3">
-                    @include('clientModule.navbar')
+                <div class="col-lg-3" style="padding-left: 30px">
+                    @include('clientModule.navbar.navbar')
                 </div>
 
                 <!-- right bar for product navigation -->
@@ -332,41 +331,23 @@
                     @endforeach
 
                     <!-- all product view -->
-                    <div class="box">
+                    <div class="box" style="padding: 30px">
                         <!-- product details -->
-                        <div class="box info-bar">
-                            <div class="row">
-                                <div class="col-md-12 col-lg-4 products-showing">Showing <strong>12</strong> of <strong>25</strong> products</div>
-                                <div class="col-md-12 col-lg-7 products-number-sort">
-                                    <form class="form-inline d-block d-lg-flex justify-content-between flex-column flex-md-row">
-                                        <div class="products-sort-by mt-2 mt-lg-0"><strong>Sort by</strong>
-                                            <select name="sort-by" class="form-control">
-                                                <option>Price</option>
-                                                <option>Name</option>
-                                                <option>Sales first</option>
-                                            </select>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
+                        @include('clientModule.product-collection.product-topbar')
 
                         <!-- product view -->
                         <div class="row products">
 
                             @foreach ($products->sortByDesc('create_at') as $product)
-
-                            @include('clientModule.category.productView')
-
+                            @include('clientModule.product-collection.product-view')
                             @endforeach
+
                         </div>
                         <!-- end product view-->
                     </div>
 
                 </div>
-
             </div>
-
         </div>
     </div>
 

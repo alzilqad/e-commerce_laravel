@@ -278,6 +278,7 @@ h1 {
   background: #fff;
   border-radius: 0;
   padding: 0.5rem 1rem;
+  padding-top: 20px;
 }
 
 /*
@@ -478,7 +479,7 @@ h1 {
   background: #fff;
   margin: 0 0 30px;
   border: solid 1px #e6e6e6;
-  padding: 30px;
+  padding: 0px;
   -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
 }
