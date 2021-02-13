@@ -18,6 +18,7 @@ use App\Http\Controllers\clientModule\userController;
 |
 */
 
+
 Route::get('/registration', [accessController::class, 'showRegisterPage'])->name('register.index');
 
 Route::get('/', [homeController::class, 'index'])->name('home.index');
@@ -30,6 +31,8 @@ Route::get('/shop/{category}/{subCategory}/{subCategory2}', [homeController::cla
 Route::get('/shop/{category}/{subCategory}/{subCategory2}/{subCategory3}', [homeController::class, 'subCategoryPage3'])->name('category.sub3');
 
 Route::get('/product/{product}', [productController::class, 'index'])->name('product.index');
+
+Route::get('/search', [homeController::class, 'searchProductView'])->name('search.index');
 
 Route::get('/cart', [cartController::class, 'index'])->name('cart.index');
 

@@ -3,6 +3,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>DinghySoft</title>
     <meta name="description" content="">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="all,follow">
     <!-- Bootstrap CSS-->
@@ -50,48 +51,45 @@
                     </div>
                     <div class="navbar-buttons d-flex justify-content-end">
                         <!-- /.nav-collapse-->
-                        <form role="search" class="ml-auto">
+                        <form action="{{route('search.index')}}" method="get" role="search" class="ml-auto">
                             <div class="input-group" style="padding: 10px">
-                                <input type="text" placeholder="Search" class="form-control">
+                                <input id="inputText" name="inputText" type="text" placeholder="Search" class="form-control">
                                 <div class="input-group-append">
-                                    <button type="button" class="btn btn-primary"><i class="fa fa-search"></i></button>
+                                    <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
                                 </div>
                             </div>
                         </form>
-                        <!-- <div id="search-not-mobile" class="navbar-collapse collapse"></div><a data-toggle="collapse" href="#search" class="btn navbar-btn btn-primary d-none d-lg-inline-block"><span class="sr-only">Toggle search</span><i class="fa fa-search"></i></a> -->
                         <div id="basket-overview" class="navbar-collapse collapse d-none d-lg-block"><a href="basket.html" class="btn btn-primary navbar-btn"><i class="fa fa-shopping-cart"></i><span>3 items in cart</span></a></div>
                     </div>
-
-                    
             </nav>
 
         </div>
 
         <div id="login-modal" tabindex="-1" role="dialog" aria-labelledby="Login" aria-hidden="true" class="modal fade">
-                        <div class="modal-dialog modal-sm">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title">Customer login</h5>
-                                    <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
-                                </div>
-                                <div class="modal-body">
-                                    <form action="customer-orders.html" method="post">
-                                        <div class="form-group">
-                                            <input id="email-modal" type="text" placeholder="email" class="form-control">
-                                        </div>
-                                        <div class="form-group">
-                                            <input id="password-modal" type="password" placeholder="password" class="form-control">
-                                        </div>
-                                        <p class="text-center">
-                                            <button class="btn btn-primary"><i class="fa fa-sign-in"></i> Log in</button>
-                                        </p>
-                                    </form>
-                                    <p class="text-center text-muted">Not registered yet?</p>
-                                    <p class="text-center text-muted"><a href="{{route('register.index')}}"><strong>Register now</strong></a>! It is easy and done in 1 minute and gives you access to special discounts and much more!</p>
-                                </div>
-                            </div>
-                        </div>
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Customer login</h5>
+                        <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
                     </div>
+                    <div class="modal-body">
+                        <form action="customer-orders.html" method="post">
+                            <div class="form-group">
+                                <input id="email-modal" type="text" placeholder="email" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <input id="password-modal" type="password" placeholder="password" class="form-control">
+                            </div>
+                            <p class="text-center">
+                                <button class="btn btn-primary"><i class="fa fa-sign-in"></i> Log in</button>
+                            </p>
+                        </form>
+                        <p class="text-center text-muted">Not registered yet?</p>
+                        <p class="text-center text-muted"><a href="{{route('register.index')}}"><strong>Register now</strong></a>! It is easy and done in 1 minute and gives you access to special discounts and much more!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <!-- <div id="search" class="collapse">
             <div class="container">
@@ -105,4 +103,9 @@
                 </form>
             </div>
         </div> -->
+
+        <button onclick="topFunction()" id="toTopBtn" title="Go to top">
+                <img src="{{asset('img/icons/up-arrow.png')}}" alt="" style="width:30px; height:30px;">
+        </button>
+
     </header>

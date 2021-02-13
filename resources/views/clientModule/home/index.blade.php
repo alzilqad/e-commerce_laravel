@@ -108,7 +108,7 @@
                                 <div class="item">
                                     <div class="product">
 
-                                        @if($product->image_link==null)
+                                        @if($product->image==null)
                                         <div class="flip-container">
                                             <div class="flipper">
                                                 <div class="front"><a href="{{route('product.index', $product->name_en)}}"><img src="{{asset('img/error.jpg')}}" alt="" class="img-fluid" style="height: 200px; object-fit: cover;"></a></div>
@@ -118,10 +118,10 @@
                                         @else
                                         <div class="flip-container">
                                             <div class="flipper">
-                                                <div class="front"><a href="{{route('product.index', $product->name_en)}}"><img src="{{asset($product->image_link)}}" alt="" class="img-fluid" style="height: 200px; object-fit: cover;"></a></div>
-                                                <div class="back"><a href="{{route('product.index', $product->name_en)}}"><img src="{{asset($product->image_link)}}" alt="" class="img-fluid" style="height: 200px; object-fit: cover;"></a></div>
+                                                <div class="front"><a href="{{route('product.index', $product->name_en)}}"><img src="{{asset($product->image->image_link)}}" alt="" class="img-fluid" style="height: 200px; object-fit: cover;"></a></div>
+                                                <div class="back"><a href="{{route('product.index', $product->name_en)}}"><img src="{{asset($product->image->image_link)}}" alt="" class="img-fluid" style="height: 200px; object-fit: cover;"></a></div>
                                             </div>
-                                        </div><a href="{{route('product.index', $product->name_en)}}" class="invisible"><img src="{{asset($product->image_link)}}" alt="" class="img-fluid" style="height: 200px; object-fit: cover;"></a>
+                                        </div><a href="{{route('product.index', $product->name_en)}}" class="invisible"><img src="{{asset($product->image->image_link)}}" alt="" class="img-fluid" style="height: 200px; object-fit: cover;"></a>
                                         @endif
 
                                         <div class="text">
@@ -184,7 +184,7 @@
                                 <div class="item">
                                     <div class="product">
 
-                                        @if($product->image_link==null)
+                                        @if($product->image==null)
                                         <div class="flip-container">
                                             <div class="flipper">
                                                 <div class="front"><a href="{{route('product.index', $product->name_en)}}"><img src="{{asset('img/error.jpg')}}" alt="" class="img-fluid" style="height: 200px; object-fit: cover;"></a></div>
@@ -194,10 +194,10 @@
                                         @else
                                         <div class="flip-container">
                                             <div class="flipper">
-                                                <div class="front"><a href="{{route('product.index', $product->name_en)}}"><img src="{{asset($product->image_link)}}" alt="" class="img-fluid" style="height: 200px; object-fit: cover;"></a></div>
-                                                <div class="back"><a href="{{route('product.index', $product->name_en)}}"><img src="{{asset($product->image_link)}}" alt="" class="img-fluid" style="height: 200px; object-fit: cover;"></a></div>
+                                                <div class="front"><a href="{{route('product.index', $product->name_en)}}"><img src="{{asset($product->image->image_link)}}" alt="" class="img-fluid" style="height: 200px; object-fit: cover;"></a></div>
+                                                <div class="back"><a href="{{route('product.index', $product->name_en)}}"><img src="{{asset($product->image->image_link)}}" alt="" class="img-fluid" style="height: 200px; object-fit: cover;"></a></div>
                                             </div>
-                                        </div><a href="{{route('product.index', $product->name_en)}}" class="invisible"><img src="{{asset($product->image_link)}}" alt="" class="img-fluid" style="height: 200px; object-fit: cover;"></a>
+                                        </div><a href="{{route('product.index', $product->name_en)}}" class="invisible"><img src="{{asset($product->image->image_link)}}" alt="" class="img-fluid" style="height: 200px; object-fit: cover;"></a>
                                         @endif
 
                                         <div class="text">
@@ -268,7 +268,7 @@
 
                                 <div class="item">
                                     <div class="product">
-                                        @if($product->image_link==null)
+                                        @if($product->image==null)
                                         <div class="flip-container">
                                             <div class="flipper">
                                                 <div class="front"><a href="{{route('product.index', $product->name_en)}}"><img src="{{asset('img/error.jpg')}}" alt="" class="img-fluid" style="height: 200px; object-fit: cover;"></a></div>
@@ -278,10 +278,10 @@
                                         @else
                                         <div class="flip-container">
                                             <div class="flipper">
-                                                <div class="front"><a href="{{route('product.index', $product->name_en)}}"><img src="{{asset($product->image_link)}}" alt="" class="img-fluid" style="height: 200px; object-fit: cover;"></a></div>
-                                                <div class="back"><a href="{{route('product.index', $product->name_en)}}"><img src="{{asset($product->image_link)}}" alt="" class="img-fluid" style="height: 200px; object-fit: cover;"></a></div>
+                                                <div class="front"><a href="{{route('product.index', $product->name_en)}}"><img src="{{asset($product->image->image_link)}}" alt="" class="img-fluid" style="height: 200px; object-fit: cover;"></a></div>
+                                                <div class="back"><a href="{{route('product.index', $product->name_en)}}"><img src="{{asset($product->image->image_link)}}" alt="" class="img-fluid" style="height: 200px; object-fit: cover;"></a></div>
                                             </div>
-                                        </div><a href="{{route('product.index', $product->name_en)}}" class="invisible"><img src="{{asset($product->image_link)}}" alt="" class="img-fluid" style="height: 200px; object-fit: cover;"></a>
+                                        </div><a href="{{route('product.index', $product->name_en)}}" class="invisible"><img src="{{asset($product->image->image_link)}}" alt="" class="img-fluid" style="height: 200px; object-fit: cover;"></a>
                                         @endif
                                         <div class="text">
                                             <h3><a href="{{route('product.index', $product->name_en)}}">{{$product->name_en}}</a></h3>
@@ -331,7 +331,7 @@
                     @endforeach
 
                     <!-- all product view -->
-                    <div class="box" style="padding: 30px">
+                    <div class="box" style="padding: 30px;">
                         <!-- product details -->
                         @include('clientModule.product-collection.product-topbar')
 

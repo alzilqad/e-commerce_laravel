@@ -28,41 +28,6 @@
           <!-- Category -->
           @include('clientModule.navbar.navbar')
 
-          <!-- Brand -->
-          <div class="card sidebar-menu mb-4">
-            <div class="card-header">
-              <h3 class="h4 card-title">Brands <a href="#" class="btn btn-sm btn-danger pull-right"><i class="fa fa-times-circle"></i> Clear</a></h3>
-            </div>
-            <div class="card-body">
-              <form>
-                <div class="form-group">
-                  <div class="checkbox">
-                    <label>
-                      <input type="checkbox"> Armani (10)
-                    </label>
-                  </div>
-                  <div class="checkbox">
-                    <label>
-                      <input type="checkbox"> Versace (12)
-                    </label>
-                  </div>
-                  <div class="checkbox">
-                    <label>
-                      <input type="checkbox"> Carlo Bruni (15)
-                    </label>
-                  </div>
-                  <div class="checkbox">
-                    <label>
-                      <input type="checkbox"> Jack Honey (14)
-                    </label>
-                  </div>
-                </div>
-                <button class="btn btn-default btn-sm btn-primary"><i class="fa fa-pencil"></i> Apply</button>
-              </form>
-            </div>
-          </div>
-
-          <!-- <div class="banner"><a href="#"><img src="img/banner.jpg" alt="sales 2014" class="img-fluid"></a></div> -->
         </div>
         <!-- *** MENUS AND FILTERS END ***-->
 
@@ -107,7 +72,7 @@
                     </a>
                   </div>
                   <div class="col-md-1">
-                  <a href="{{route('category.sub3', ['category' => $activeCategory->name_en, 'subCategory' => $parentSubCategory->name_en, 'subCategory2' => $activeSubCategory->name_en, 'subCategory3' => $subCategory->name_en])}}">
+                    <a href="{{route('category.sub3', ['category' => $activeCategory->name_en, 'subCategory' => $parentSubCategory->name_en, 'subCategory2' => $activeSubCategory->name_en, 'subCategory3' => $subCategory->name_en])}}">
                       <span class="badge see-more">
                         <h7>More
                           <img src="{{asset('img/icons/right-arrow.png')}}" alt="" style="width:10px; height:10px;">
@@ -126,7 +91,7 @@
 
               <div class="item">
                 <div class="product">
-                  @if($product->image_link==null)
+                  @if($product->image==null)
                   <div class="flip-container">
                     <div class="flipper">
                       <div class="front"><a href="{{route('product.index', $product->name_en)}}"><img src="{{asset('img/error.jpg')}}" alt="" class="img-fluid" style="height: 200px; width: 100%; object-fit: cover;"></a></div>
@@ -136,10 +101,10 @@
                   @else
                   <div class="flip-container">
                     <div class="flipper">
-                      <div class="front"><a href="{{route('product.index', $product->name_en)}}"><img src="{{asset($product->image_link)}}" alt="" class="img-fluid" style="height: 200px; width: 100%; object-fit: cover;"></a></div>
-                      <div class="back"><a href="{{route('product.index', $product->name_en)}}"><img src="{{asset($product->image_link)}}" alt="" class="img-fluid" style="height: 200px; width: 100%; object-fit: cover;"></a></div>
+                      <div class="front"><a href="{{route('product.index', $product->name_en)}}"><img src="{{asset($product->image->image_link)}}" alt="" class="img-fluid" style="height: 200px; width: 100%; object-fit: cover;"></a></div>
+                      <div class="back"><a href="{{route('product.index', $product->name_en)}}"><img src="{{asset($product->image->image_link)}}" alt="" class="img-fluid" style="height: 200px; width: 100%; object-fit: cover;"></a></div>
                     </div>
-                  </div><a href="{{route('product.index', $product->name_en)}}" class="invisible"><img src="{{asset($product->image_link)}}" alt="" class="img-fluid" style="height: 200px; width: 100%; object-fit: cover;"></a>
+                  </div><a href="{{route('product.index', $product->name_en)}}" class="invisible"><img src="{{asset($product->image->image_link)}}" alt="" class="img-fluid" style="height: 200px; width: 100%; object-fit: cover;"></a>
                   @endif
                   <div class="text">
                     <h3><a href="{{route('product.index', $product->name_en)}}">{{$product->name_en}}</a></h3>

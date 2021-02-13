@@ -1,7 +1,7 @@
 <div class="col-lg-3 col-md-6">
     <div class="product">
 
-        @if($product->image_link==null)
+        @if($product->image==null)
         <div class="flip-container">
             <div class="flipper">
                 <div class="front"><a href="{{route('product.index', $product->name_en)}}"><img src="{{asset('img/error.jpg')}}" alt="" class="img-fluid" style="height: 200px; width: 300px; object-fit: cover;"></a></div>
@@ -11,10 +11,10 @@
         @else
         <div class="flip-container">
             <div class="flipper">
-                <div class="front"><a href="{{route('product.index', $product->name_en)}}"><img src="{{asset($product->image_link)}}" alt="" class="img-fluid" style="height: 200px; width: 300px; object-fit: cover;"></a></div>
-                <div class="back"><a href="{{route('product.index', $product->name_en)}}"><img src="{{asset($product->image_link)}}" alt="" class="img-fluid" style="height: 200px; width: 300px; object-fit: cover;"></a></div>
+                <div class="front"><a href="{{route('product.index', $product->name_en)}}"><img src="{{asset($product->image->image_link)}}" alt="" class="img-fluid" style="height: 200px; width: 300px; object-fit: cover;"></a></div>
+                <div class="back"><a href="{{route('product.index', $product->name_en)}}"><img src="{{asset($product->image->image_link)}}" alt="" class="img-fluid" style="height: 200px; width: 300px; object-fit: cover;"></a></div>
             </div>
-        </div><a href="{{route('product.index', $product->name_en)}}" class="invisible"><img src="{{asset($product->image_link)}}" alt="" class="img-fluid" style="height: 200px; width: 300px; object-fit: cover;"></a>
+        </div><a href="{{route('product.index', $product->name_en)}}" class="invisible"><img src="{{asset($product->image->image_link)}}" alt="" class="img-fluid" style="height: 200px; width: 300px; object-fit: cover;"></a>
         @endif
 
         <div class="text">

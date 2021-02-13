@@ -7,11 +7,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 
-use Stichoza\GoogleTranslate\GoogleTranslate;
-
-
 use App\Models\Category;
 use App\Models\SubCategory;
+use App\Models\Product;
+use App\Models\ProductImage;
 
 class homeController extends Controller
 {
@@ -19,41 +18,39 @@ class homeController extends Controller
     {
         $categories = Category::all();
         $subCategories = SubCategory::all();
-        $products = DB::table('products')
-            ->leftJoin('product_image', 'product_image.product_id', '=', 'products.id')
-            ->where('products.stock_status', 1)
+        $products = Product::where('products.stock_status', 1)
             ->where('products.active_status', 1)
             ->where('products.verify_status', 1)
             ->orderBy('products.create_at', 'desc')
             ->get();
 
+        foreach ($products as $product) {
+            $product->image = ProductImage::select('product_image.image_link')->where('product_image.product_id', '=', $product->id)->first();
+        }
+
         $activeCategory = null;
         $activeSubCategory = null;
+
         return view('clientModule.home.index', compact('categories', 'subCategories', 'products', 'activeCategory', 'activeSubCategory'));
     }
 
     public function singularCategoryPage(Request $req, $category)
     {
-        // $tr = new GoogleTranslate('bn'); // Translates into English
-
         $categories = Category::all();
         $subCategories = SubCategory::all();
-        $products = DB::table('products')
-            ->leftJoin('product_image', 'product_image.product_id', '=', 'products.id')
-            ->where('products.stock_status', 1)
+        $products = Product::where('products.stock_status', 1)
             ->where('products.active_status', 1)
             ->where('products.verify_status', 1)
             ->orderBy('products.create_at', 'desc')
             ->get();
 
+        foreach ($products as $product) {
+            $product->image = ProductImage::select('product_image.image_link')->where('product_image.product_id', '=', $product->id)->first();
+        }
+
         $activeCategory = Category::where('name_en', $category)
             ->first();
         $activeSubCategory = null;
-
-        // dd($products);
-
-        // $activeCategory->name_en = $tr->translate($activeCategory->name_en);
-        // $activeCategory->description = $tr->translate($activeCategory->description);
 
         if ($activeCategory != null) {
             return view('clientModule.category.category', compact('categories', 'subCategories', 'products', 'activeCategory', 'activeSubCategory'));
@@ -66,13 +63,15 @@ class homeController extends Controller
     {
         $categories = Category::all();
         $subCategories = SubCategory::all();
-        $products = DB::table('products')
-            ->leftJoin('product_image', 'product_image.product_id', '=', 'products.id')
-            ->where('products.stock_status', 1)
+        $products = Product::where('products.stock_status', 1)
             ->where('products.active_status', 1)
             ->where('products.verify_status', 1)
             ->orderBy('products.create_at', 'desc')
             ->get();
+
+        foreach ($products as $product) {
+            $product->image = ProductImage::select('product_image.image_link')->where('product_image.product_id', '=', $product->id)->first();
+        }
 
         $activeCategory = null;
         $activeSubCategory = null;
@@ -83,49 +82,55 @@ class homeController extends Controller
     {
         $categories = Category::all();
         $subCategories = SubCategory::all();
-        $products = DB::table('products')
-            ->leftJoin('product_image', 'product_image.product_id', '=', 'products.id')
-            ->where('products.stock_status', 1)
+        $products = Product::where('products.stock_status', 1)
             ->where('products.active_status', 1)
             ->where('products.verify_status', 1)
             ->orderBy('products.create_at', 'desc')
             ->get();
 
+        foreach ($products as $product) {
+            $product->image = ProductImage::select('product_image.image_link')->where('product_image.product_id', '=', $product->id)->first();
+        }
+
         $page = "New Arrival";
         $activeCategory = null;
         $activeSubCategory = null;
-        return view('clientModule.new-arrival.new-arrival', compact('categories', 'subCategories', 'products', 'page', 'activeCategory', 'activeSubCategory'));
+        return view('clientModule.new-arrival.index', compact('categories', 'subCategories', 'products', 'page', 'activeCategory', 'activeSubCategory'));
     }
 
     public function offerPage(Request $req)
     {
         $categories = Category::all();
         $subCategories = SubCategory::all();
-        $products = DB::table('products')
-            ->leftJoin('product_image', 'product_image.product_id', '=', 'products.id')
-            ->where('products.stock_status', 1)
+        $products = Product::where('products.stock_status', 1)
             ->where('products.active_status', 1)
             ->where('products.verify_status', 1)
             ->orderBy('products.create_at', 'desc')
             ->get();
 
+        foreach ($products as $product) {
+            $product->image = ProductImage::select('product_image.image_link')->where('product_image.product_id', '=', $product->id)->first();
+        }
+
         $page = "Best Offer";
         $activeCategory = null;
         $activeSubCategory = null;
-        return view('clientModule.best-offer.best-offer', compact('categories', 'subCategories', 'products', 'page', 'activeCategory', 'activeSubCategory'));
+        return view('clientModule.best-offer.index', compact('categories', 'subCategories', 'products', 'page', 'activeCategory', 'activeSubCategory'));
     }
 
     public function subCategoryPage(Request $req, $category, $subCategory)
     {
         $categories = Category::all();
         $subCategories = SubCategory::all();
-        $products = DB::table('products')
-            ->leftJoin('product_image', 'product_image.product_id', '=', 'products.id')
-            ->where('products.stock_status', 1)
+        $products = Product::where('products.stock_status', 1)
             ->where('products.active_status', 1)
             ->where('products.verify_status', 1)
             ->orderBy('products.create_at', 'desc')
             ->get();
+
+        foreach ($products as $product) {
+            $product->image = ProductImage::select('product_image.image_link')->where('product_image.product_id', '=', $product->id)->first();
+        }
 
         $activeCategory = Category::where('name_en', $category)
             ->first();
@@ -137,7 +142,7 @@ class homeController extends Controller
         $parentSubCategory = null;
 
         if ($activeSubCategory != null) {
-            return view('clientModule.sub-category.sub-category', compact('categories', 'subCategories', 'products', 'activeCategory', 'activeSubCategory', 'parentSubCategory'));
+            return view('clientModule.sub-category.index', compact('categories', 'subCategories', 'products', 'activeCategory', 'activeSubCategory', 'parentSubCategory'));
         } else {
             return back();
         }
@@ -147,13 +152,15 @@ class homeController extends Controller
     {
         $categories = Category::all();
         $subCategories = SubCategory::all();
-        $products = DB::table('products')
-            ->leftJoin('product_image', 'product_image.product_id', '=', 'products.id')
-            ->where('products.stock_status', 1)
+        $products = Product::where('products.stock_status', 1)
             ->where('products.active_status', 1)
             ->where('products.verify_status', 1)
             ->orderBy('products.create_at', 'desc')
             ->get();
+
+        foreach ($products as $product) {
+            $product->image = ProductImage::select('product_image.image_link')->where('product_image.product_id', '=', $product->id)->first();
+        }
 
         $activeCategory = Category::where('name_en', $category)
             ->first();
@@ -167,7 +174,7 @@ class homeController extends Controller
             ->first();
 
         if ($activeSubCategory != null) {
-            return view('clientModule.sub-category.sub-category', compact('categories', 'subCategories', 'products', 'activeCategory', 'activeSubCategory', 'parentSubCategory'));
+            return view('clientModule.sub-category.index', compact('categories', 'subCategories', 'products', 'activeCategory', 'activeSubCategory', 'parentSubCategory'));
         } else {
             return back();
         }
@@ -177,13 +184,15 @@ class homeController extends Controller
     {
         $categories = Category::all();
         $subCategories = SubCategory::all();
-        $products = DB::table('products')
-            ->leftJoin('product_image', 'product_image.product_id', '=', 'products.id')
-            ->where('products.stock_status', 1)
+        $products = Product::where('products.stock_status', 1)
             ->where('products.active_status', 1)
             ->where('products.verify_status', 1)
             ->orderBy('products.create_at', 'desc')
             ->get();
+
+        foreach ($products as $product) {
+            $product->image = ProductImage::select('product_image.image_link')->where('product_image.product_id', '=', $product->id)->first();
+        }
 
         $activeCategory = Category::where('name_en', $category)
             ->first();
@@ -196,9 +205,32 @@ class homeController extends Controller
         $parentSubCategory = null;
 
         if ($activeSubCategory != null) {
-            return view('clientModule.sub-category.sub-category', compact('categories', 'subCategories', 'products', 'activeCategory', 'activeSubCategory', 'parentSubCategory'));
+            return view('clientModule.sub-category.index', compact('categories', 'subCategories', 'products', 'activeCategory', 'activeSubCategory', 'parentSubCategory'));
         } else {
             return back();
         }
+    }
+
+    public function searchProductView(Request $req)
+    {
+        $text = $req->input('inputText');
+
+        $categories = Category::all();
+        $subCategories = SubCategory::all();
+        $products = Product::where('products.stock_status', 1)
+            ->where('products.active_status', 1)
+            ->where('products.verify_status', 1)
+            ->where('products.name_en', 'like', '%' . $text . '%')
+            ->orderBy('products.create_at', 'desc')
+            ->get();
+
+        foreach ($products as $product) {
+            $product->image = ProductImage::select('product_image.image_link')->where('product_image.product_id', '=', $product->id)->first();
+        }
+
+        $activeCategory = null;
+        $activeSubCategory = null;
+
+        return view('clientModule.search.index', compact('categories', 'subCategories', 'products', 'activeCategory', 'activeSubCategory', 'text'));
     }
 }
