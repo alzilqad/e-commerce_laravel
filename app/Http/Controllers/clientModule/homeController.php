@@ -34,6 +34,8 @@ class homeController extends Controller
             'products' => $products,
             'activeCategory' => null,
             'activeSubCategory' => null,
+            'parentSubCategory' => null,
+            'parentSubCategory2' => null,
         ];
 
         return view('clientModule.home.index', compact('data'));
@@ -62,6 +64,8 @@ class homeController extends Controller
             'products' => $products,
             'activeCategory' => $activeCategory,
             'activeSubCategory' => null,
+            'parentSubCategory' => null,
+            'parentSubCategory2' => null,
         ];
 
         if ($activeCategory != null) {
@@ -91,6 +95,8 @@ class homeController extends Controller
             'products' => $products,
             'activeCategory' => null,
             'activeSubCategory' => null,
+            'parentSubCategory' => null,
+            'parentSubCategory2' => null,
         ];
 
         return view('clientModule.category.category-multiple', compact('data'));
@@ -116,6 +122,8 @@ class homeController extends Controller
             'products' => $products,
             'activeCategory' => null,
             'activeSubCategory' => null,
+            'parentSubCategory' => null,
+            'parentSubCategory2' => null,
             'page' => "New Arrival"
         ];
 
@@ -142,6 +150,8 @@ class homeController extends Controller
             'products' => $products,
             'activeCategory' => null,
             'activeSubCategory' => null,
+            'parentSubCategory' => null,
+            'parentSubCategory2' => null,
             'page' => "Best Offer"
         ];
 
@@ -297,7 +307,10 @@ class homeController extends Controller
             'subCategories' => $subCategories,
             'products' => $products,
             'text' => $text,
-            'activeCategory' => null
+            'activeCategory' => null,
+            'activeSubCategory' => null,
+            'parentSubCategory' => null,
+            'parentSubCategory2' => null,
         ];
 
         return view('clientModule.search.index', compact('data'));

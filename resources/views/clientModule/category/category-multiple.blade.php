@@ -12,12 +12,13 @@
           <!-- breadcrumb-->
           <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item"><a href="{{route('home.index')}}">Home</a></li>
+              <li aria-current="page" class="breadcrumb-item active">Categories</li>
             </ol>
           </nav>
         </div>
 
-        <div class="col-lg-3" style="padding-left: 30px">
+        <div class="col-lg-2" style="padding-left: 30px">
           <!--
               *** MENUS AND FILTERS ***
               _________________________________________________________
@@ -30,7 +31,7 @@
         </div>
 
 
-        <div class="col-lg-9">
+        <div class="col-lg-10">
 
           @foreach ($data['categories'] as $category)
 
@@ -58,7 +59,7 @@
                       <h2 class="mb-0">{{$subCategory->name_en}}</h2>
                     </a>
                   </div>
-                  <div class="col-md-1">
+                  <div class="col-md-1" style="padding-left: 50px">
                     <a href="{{route('category.sub', ['category' => $category->name_en, 'subCategory' => $subCategory->name_en])}}">
                       <span class="badge see-more">
                         <h7>More

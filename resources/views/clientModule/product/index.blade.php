@@ -11,13 +11,13 @@
           <!-- breadcrumb-->
           <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li aria-current="page" class="breadcrumb-item active">White Blouse Armani</li>
+              <li class="breadcrumb-item"><a href="{{route('home.index')}}">Home</a></li>
+              <li aria-current="page" class="breadcrumb-item active">{{$data['activeProduct']->name_en}}</li>
             </ol>
           </nav>
         </div>
 
-        <div class="col-lg-3" style="padding-left: 30px">
+        <div class="col-lg-2" style="padding-left: 30px">
 
           <!-- Category -->
           @include('clientModule.navbar.navbar')
@@ -25,40 +25,40 @@
           <!-- *** MENUS AND FILTERS END ***-->
 
         </div>
-        <div class="col-lg-9 order-1 order-lg-2">
+        <div class="col-lg-10 order-1 order-lg-2">
           <div id="productMain" class="row">
             <div class="col-md-6">
               <div data-slider-id="1" class="owl-carousel shop-detail-carousel">
-                @foreach($activeProduct->images as $productImage)
+                @foreach($data['activeProduct']->images as $productImage)
                 <div class="item"> <img src="{{asset($productImage->image_link)}}" alt="" class="img-fluid"></div>
                 @endforeach
               </div>
-              @if($activeProduct->discount>0)
+              @if($data['activeProduct']->discount>0)
               <!-- /.text-->
               <div class="ribbon sale">
                 <div class="theribbon">Sale</div>
                 <div class="ribbon-background"></div>
               </div>
               <div class="ribbon new">
-                <div class="theribbon">{{$activeProduct->discount}}%</div>
+                <div class="theribbon">{{$data['activeProduct']->discount}}%</div>
                 <div class="ribbon-background"></div>
               </div>
               @endif
             </div>
             <div class="col-md-6">
               <div class="box" style="padding: 30px">
-                <h1 class="text-center">{{$activeProduct->name_en}}</h1>
+                <h1 class="text-center">{{$data['activeProduct']->name_en}}</h1>
                 <p class="goToDescription"><a href="#details" class="scroll-to">Scroll to product details, material &amp; care and sizing</a></p>
                 <p class="price">
-                  @if($activeProduct->discount>0)
-                  <del>${{$activeProduct->original_price}}</del>
+                  @if($data['activeProduct']->discount>0)
+                  <del>${{$data['activeProduct']->original_price}}</del>
                   @endif
-                  ${{$activeProduct->buying_price}}
+                  ${{$data['activeProduct']->buying_price}}
                 </p>
                 <p class="text-center buttons"><a href="basket.html" class="btn btn-primary"><i class="fa fa-shopping-cart"></i> Add to cart</a><a href="basket.html" class="btn btn-outline-primary"><i class="fa fa-heart"></i> Add to wishlist</a></p>
               </div>
               <div data-slider-id="1" class="owl-thumbs">
-                @foreach($activeProduct->images as $productImage)
+                @foreach($data['activeProduct']->images as $productImage)
                 <button class="owl-thumb-item"><img src="{{asset($productImage->image_link)}}" alt="" class="img-fluid"></button>
                 @endforeach
               </div>
@@ -67,7 +67,7 @@
           <div id="details" class="box" style="padding: 30px">
             <h4><b>Product details</b></h4><br />
             <p>
-              {!! nl2br($activeProduct->description) !!}
+              {!! nl2br($data['activeProduct']->description) !!}
             </p>
 
             <!-- <blockquote>

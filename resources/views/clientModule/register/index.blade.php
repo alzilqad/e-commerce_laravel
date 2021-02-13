@@ -10,7 +10,7 @@
           <!-- breadcrumb-->
           <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item"><a href="{{route('home.index')}}">Home</a></li>
               <li aria-current="page" class="breadcrumb-item active">New account / Sign in</li>
             </ol>
           </nav>
@@ -66,4 +66,5 @@
 </div>
 
 @include('clientModule.footer')
+
 </html>

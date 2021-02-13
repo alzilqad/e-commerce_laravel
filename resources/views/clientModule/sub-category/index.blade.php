@@ -36,7 +36,7 @@
         </div>
 
         <!-- *** MENUS AND FILTERS *** -->
-        <div class="col-lg-3" style="padding-left: 30px">
+        <div class="col-lg-2" style="padding-left: 30px">
 
           <!-- Category -->
           @include('clientModule.navbar.navbar')
@@ -45,7 +45,7 @@
         <!-- *** MENUS AND FILTERS END ***-->
 
 
-        <div class="col-lg-9">
+        <div class="col-lg-10">
 
           <!-- category details -->
           <div class="box" style="padding: 30px">
@@ -69,7 +69,7 @@
                       <h2 class="mb-0">{{$subCategory->name_en}}</h2>
                     </a>
                   </div>
-                  <div class="col-md-1">
+                  <div class="col-md-1" style="padding-left: 50px">
                     <a href="{{route('category.sub2', ['category' => $data['activeCategory']->name_en, 'subCategory' => $data['activeSubCategory']->name_en, 'subCategory2' => $subCategory->name_en])}}">
                       <span class="badge see-more">
                         <h7>More
@@ -84,7 +84,7 @@
                       <h2 class="mb-0">{{$subCategory->name_en}}</h2>
                     </a>
                   </div>
-                  <div class="col-md-1">
+                  <div class="col-md-1" style="padding-left: 50px">
                     <a href="{{route('category.sub3', ['category' => $data['activeCategory']->name_en, 'subCategory' => $data['parentSubCategory']->name_en, 'subCategory2' => $data['activeSubCategory']->name_en, 'subCategory3' => $subCategory->name_en])}}">
                       <span class="badge see-more">
                         <h7>More

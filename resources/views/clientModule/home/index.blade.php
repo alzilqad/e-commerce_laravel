@@ -19,12 +19,12 @@
                 </div>
 
                 <!-- left bar for category navigation -->
-                <div class="col-lg-3" style="padding-left: 30px">
+                <div class="col-lg-2" style="padding-left: 30px">
                     @include('clientModule.navbar.navbar')
                 </div>
 
                 <!-- right bar for product navigation -->
-                <div class="col-lg-9">
+                <div class="col-lg-10">
 
                     <!-- category -->
                     <div id="hot">
@@ -36,7 +36,7 @@
                                             <h2 class="mb-0">Categories</h2>
                                         </a>
                                     </div>
-                                    <div class="col-md-1">
+                                    <div class="col-md-1" style="padding-left: 50px">
                                         <a href="{{route('category.multiple')}}">
                                             <span class="badge see-more">
                                                 <h7>More
@@ -88,7 +88,7 @@
                                             <h2 class="mb-0">New Arrival</h2>
                                         </a>
                                     </div>
-                                    <div class="col-md-1">
+                                    <div class="col-md-1" style="padding-left: 50px" style="padding-left: 50px">
                                         <a href="{{route('category.new')}}">
                                             <span class="badge see-more">
                                                 <h7>More
@@ -165,7 +165,7 @@
                                             <h2 class="mb-0">Best Offer</h2>
                                         </a>
                                     </div>
-                                    <div class="col-md-1">
+                                    <div class="col-md-1" style="padding-left: 50px">
                                         <a href="{{route('category.offer')}}">
                                             <span class="badge see-more">
                                                 <h7>More
@@ -247,7 +247,7 @@
                                             <h2 class="mb-0">{{$category->name_en}}</h2>
                                         </a>
                                     </div>
-                                    <div class="col-md-1">
+                                    <div class="col-md-1" style="padding-left: 50px">
                                         <a href="{{route('category.singular', $category->name_en)}}">
                                             <span class="badge see-more">
                                                 <h7>More

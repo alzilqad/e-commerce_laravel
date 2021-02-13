@@ -33,8 +33,13 @@ class productController extends Controller
         // $activeProduct->name_en = $tr->translate($activeProduct->name_en);
         // $activeProduct->description = $tr->translate($activeProduct->description);
 
-        $activeCategory = null;
+        $data = [
+            'categories' => $categories,
+            'subCategories' => $subCategories,
+            'activeCategory' => null,
+            'activeProduct' => $activeProduct,
+        ];
 
-        return view('clientModule.product.index', compact('categories', 'subCategories', 'activeProduct', 'activeCategory'));
+        return view('clientModule.product.index', compact('data'));
     }
 }

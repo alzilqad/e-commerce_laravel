@@ -37,13 +37,17 @@
                         </a>
                     </li>
 
+                    @if ($subCategory==$data['activeSubCategory'] || $subCategory==$data['parentSubCategory'])
+                    <input id="check1{{$subCategory->id}}" type="checkbox" name="menu" checked/>
+                    @else
                     <input id="check1{{$subCategory->id}}" type="checkbox" name="menu" />
+                    @endif
 
                     <!-- subcategory level 2 -->
                     <ul class="submenu">
                         @foreach ($data['subCategories'] as $subCategory2)
                         @if($subCategory2->sub_category_id==$subCategory->id)
-                        <li style="padding-left:20px;">
+                        <li style="padding-left:10px;">
                             <a for="check2{{$subCategory->id}}" href="{{route('category.sub2', ['category' => $category->name_en, 'subCategory' => $subCategory->name_en, 'subCategory2' => $subCategory2->name_en])}}" class="nav-link">
                                 {{$subCategory2->name_en}}
                                 @if($subCategory2->sub_category_count!=0)
@@ -53,13 +57,23 @@
                                 @endif
                             </a>
                         </li>
+
+                        @if ($subCategory2==$data['activeSubCategory'] || $subCategory2==$data['parentSubCategory2'])
+                        <input id="check2{{$subCategory2->id}}" type="checkbox" name="menu" checked/>
+                        @else
                         <input id="check2{{$subCategory2->id}}" type="checkbox" name="menu" />
+                        @endif
 
                         <!-- subcategory level 3 -->
                         <ul class="submenu">
                             @foreach ($data['subCategories'] as $subCategory3)
                             @if($subCategory3->sub_category_id==$subCategory2->id)
-                            <li style="padding-left:40px;"><a href="{{route('category.sub3', ['category' => $category->name_en, 'subCategory' => $subCategory->name_en, 'subCategory2' => $subCategory2->name_en, 'subCategory3' => $subCategory3->name_en])}}" class="nav-link">{{$subCategory3->name_en}}</a></li>
+                            <li style="padding-left:20px;">
+                                <a href="{{route('category.sub3', ['category' => $category->name_en, 'subCategory' => $subCategory->name_en, 'subCategory2' => $subCategory2->name_en, 'subCategory3' => $subCategory3->name_en])}}" class="nav-link">
+                                    {{$subCategory3->name_en}}
+                                </a>
+                            </li>
+                            <input type="checkbox">
                             @endif
                             @endforeach
                         </ul>

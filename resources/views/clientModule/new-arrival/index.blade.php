@@ -12,13 +12,13 @@
           <!-- breadcrumb-->
           <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item"><a href="{{route('home.index')}}">Home</a></li>
               <li aria-current="page" class="breadcrumb-item active">{{$data['page']}}</li>
             </ol>
           </nav>
         </div>
 
-        <div class="col-lg-3" style="padding-left: 30px">
+        <div class="col-lg-2" style="padding-left: 30px">
           <!--
               *** MENUS AND FILTERS ***
               _________________________________________________________
@@ -31,7 +31,7 @@
         </div>
 
 
-        <div class="col-lg-9">
+        <div class="col-lg-10">
 
           <div class="box" style="padding-left: 30px">
             <h1>{{$data['page']}}</h1>
