@@ -28,10 +28,15 @@ class homeController extends Controller
             $product->image = ProductImage::select('product_image.image_link')->where('product_image.product_id', '=', $product->id)->first();
         }
 
-        $activeCategory = null;
-        $activeSubCategory = null;
+        $data = [
+            'categories' => $categories,
+            'subCategories' => $subCategories,
+            'products' => $products,
+            'activeCategory' => null,
+            'activeSubCategory' => null,
+        ];
 
-        return view('clientModule.home.index', compact('categories', 'subCategories', 'products', 'activeCategory', 'activeSubCategory'));
+        return view('clientModule.home.index', compact('data'));
     }
 
     public function singularCategoryPage(Request $req, $category)
@@ -50,10 +55,17 @@ class homeController extends Controller
 
         $activeCategory = Category::where('name_en', $category)
             ->first();
-        $activeSubCategory = null;
+
+        $data = [
+            'categories' => $categories,
+            'subCategories' => $subCategories,
+            'products' => $products,
+            'activeCategory' => $activeCategory,
+            'activeSubCategory' => null,
+        ];
 
         if ($activeCategory != null) {
-            return view('clientModule.category.category', compact('categories', 'subCategories', 'products', 'activeCategory', 'activeSubCategory'));
+            return view('clientModule.category.category', compact('data'));
         } else {
             return back();
         }
@@ -73,9 +85,15 @@ class homeController extends Controller
             $product->image = ProductImage::select('product_image.image_link')->where('product_image.product_id', '=', $product->id)->first();
         }
 
-        $activeCategory = null;
-        $activeSubCategory = null;
-        return view('clientModule.category.category-multiple', compact('categories', 'subCategories', 'products', 'activeCategory', 'activeSubCategory'));
+        $data = [
+            'categories' => $categories,
+            'subCategories' => $subCategories,
+            'products' => $products,
+            'activeCategory' => null,
+            'activeSubCategory' => null,
+        ];
+
+        return view('clientModule.category.category-multiple', compact('data'));
     }
 
     public function newArrivalPage(Request $req)
@@ -92,10 +110,16 @@ class homeController extends Controller
             $product->image = ProductImage::select('product_image.image_link')->where('product_image.product_id', '=', $product->id)->first();
         }
 
-        $page = "New Arrival";
-        $activeCategory = null;
-        $activeSubCategory = null;
-        return view('clientModule.new-arrival.index', compact('categories', 'subCategories', 'products', 'page', 'activeCategory', 'activeSubCategory'));
+        $data = [
+            'categories' => $categories,
+            'subCategories' => $subCategories,
+            'products' => $products,
+            'activeCategory' => null,
+            'activeSubCategory' => null,
+            'page' => "New Arrival"
+        ];
+
+        return view('clientModule.new-arrival.index', compact('data'));
     }
 
     public function offerPage(Request $req)
@@ -112,10 +136,16 @@ class homeController extends Controller
             $product->image = ProductImage::select('product_image.image_link')->where('product_image.product_id', '=', $product->id)->first();
         }
 
-        $page = "Best Offer";
-        $activeCategory = null;
-        $activeSubCategory = null;
-        return view('clientModule.best-offer.index', compact('categories', 'subCategories', 'products', 'page', 'activeCategory', 'activeSubCategory'));
+        $data = [
+            'categories' => $categories,
+            'subCategories' => $subCategories,
+            'products' => $products,
+            'activeCategory' => null,
+            'activeSubCategory' => null,
+            'page' => "Best Offer"
+        ];
+
+        return view('clientModule.best-offer.index', compact('data'));
     }
 
     public function subCategoryPage(Request $req, $category, $subCategory)
@@ -139,10 +169,19 @@ class homeController extends Controller
             ->where('name_en', $subCategory)
             ->first();
 
-        $parentSubCategory = null;
+
+        $data = [
+            'categories' => $categories,
+            'subCategories' => $subCategories,
+            'products' => $products,
+            'activeCategory' => $activeCategory,
+            'activeSubCategory' => $activeSubCategory,
+            'parentSubCategory' => null,
+            'parentSubCategory2' => null
+        ];
 
         if ($activeSubCategory != null) {
-            return view('clientModule.sub-category.index', compact('categories', 'subCategories', 'products', 'activeCategory', 'activeSubCategory', 'parentSubCategory'));
+            return view('clientModule.sub-category.index', compact('data'));
         } else {
             return back();
         }
@@ -173,8 +212,18 @@ class homeController extends Controller
             ->where('name_en', $subCategory2)
             ->first();
 
+        $data = [
+            'categories' => $categories,
+            'subCategories' => $subCategories,
+            'products' => $products,
+            'activeCategory' => $activeCategory,
+            'activeSubCategory' => $activeSubCategory,
+            'parentSubCategory' => $parentSubCategory,
+            'parentSubCategory2' => null
+        ];
+
         if ($activeSubCategory != null) {
-            return view('clientModule.sub-category.index', compact('categories', 'subCategories', 'products', 'activeCategory', 'activeSubCategory', 'parentSubCategory'));
+            return view('clientModule.sub-category.index', compact('data'));
         } else {
             return back();
         }
@@ -201,11 +250,26 @@ class homeController extends Controller
             ->where('name_en', $subCategory3)
             ->first();
 
+        $parentSubCategory2 = SubCategory::where('category_id', $activeCategory->id)
+            ->where('id', $activeSubCategory->sub_category_id)
+            ->first();
 
-        $parentSubCategory = null;
+        $parentSubCategory = SubCategory::where('category_id', $activeCategory->id)
+            ->where('id', $parentSubCategory2->sub_category_id)
+            ->first();
+
+        $data = [
+            'categories' => $categories,
+            'subCategories' => $subCategories,
+            'products' => $products,
+            'activeCategory' => $activeCategory,
+            'activeSubCategory' => $activeSubCategory,
+            'parentSubCategory' => $parentSubCategory,
+            'parentSubCategory2' => $parentSubCategory2,
+        ];
 
         if ($activeSubCategory != null) {
-            return view('clientModule.sub-category.index', compact('categories', 'subCategories', 'products', 'activeCategory', 'activeSubCategory', 'parentSubCategory'));
+            return view('clientModule.sub-category.index', compact('data'));
         } else {
             return back();
         }
@@ -228,9 +292,14 @@ class homeController extends Controller
             $product->image = ProductImage::select('product_image.image_link')->where('product_image.product_id', '=', $product->id)->first();
         }
 
-        $activeCategory = null;
-        $activeSubCategory = null;
+        $data = [
+            'categories' => $categories,
+            'subCategories' => $subCategories,
+            'products' => $products,
+            'text' => $text,
+            'activeCategory' => null
+        ];
 
-        return view('clientModule.search.index', compact('categories', 'subCategories', 'products', 'activeCategory', 'activeSubCategory', 'text'));
+        return view('clientModule.search.index', compact('data'));
     }
 }

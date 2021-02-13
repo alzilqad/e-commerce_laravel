@@ -32,7 +32,7 @@
 
         <div class="col-lg-9">
 
-          @foreach ($categories as $category)
+          @foreach ($data['categories'] as $category)
 
           <!-- category details -->
           <div class="box" style="padding: 30px">
@@ -46,7 +46,7 @@
           </div>
 
           <!-- subcategory product view -->
-          @foreach ($subCategories as $subCategory)
+          @foreach ($data['subCategories'] as $subCategory)
           @if($subCategory->category_id==$category->id && $subCategory->sub_category_id==0)
 
           <div id="hot">
@@ -73,7 +73,7 @@
 
             <div class="product-slider owl-carousel owl-theme">
 
-              @foreach ($products as $product)
+              @foreach ($data['products'] as $product)
               @if($product->category_sub_product_id==$subCategory->id)
 
               <div class="item">
@@ -150,7 +150,7 @@
             @include('clientModule.product-collection.product-topbar')
             <div class="row products">
 
-              @foreach ($products->sortByDesc('create_at') as $product)
+              @foreach ($data['products']->sortByDesc('create_at') as $product)
 
               @include('clientModule.product-collection.product-view')
 

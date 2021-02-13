@@ -13,7 +13,7 @@
           <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li aria-current="page" class="breadcrumb-item active">{{$activeCategory->name_en}}</li>
+              <li aria-current="page" class="breadcrumb-item active">{{$data['activeCategory']->name_en}}</li>
             </ol>
           </nav>
         </div>
@@ -33,27 +33,27 @@
 
           <!-- category details -->
           <div class="box" style="padding: 30px">
-            <h1>{{$activeCategory->name_en}}</h1>
-            <p>{{$activeCategory->description}}</p>
+            <h1>{{$data['activeCategory']->name_en}}</h1>
+            <p>{{$data['activeCategory']->description}}</p>
 
-            <div class="item"><img src="{{asset($activeCategory->cover_image)}}" alt="" class="center" style="height: 400px"></div>
+            <div class="item"><img src="{{asset($data['activeCategory']->cover_image)}}" alt="" class="center" style="height: 400px"></div>
 
           </div>
 
           <!-- subcategory product view -->
-          @foreach ($subCategories as $subCategory)
-          @if($subCategory->category_id==$activeCategory->id && $subCategory->sub_category_id==0)
+          @foreach ($data['subCategories'] as $subCategory)
+          @if($subCategory->category_id==$data['activeCategory']->id && $subCategory->sub_category_id==0)
           <div id="hot">
             <div class="box py-0">
               <div class="container">
                 <div class="row">
                   <div class="col-md-11">
-                    <a href="{{route('category.sub', ['category' => $activeCategory->name_en, 'subCategory' => $subCategory->name_en])}}">
+                    <a href="{{route('category.sub', ['category' => $data['activeCategory']->name_en, 'subCategory' => $subCategory->name_en])}}">
                       <h2 class="mb-0">{{$subCategory->name_en}}</h2>
                     </a>
                   </div>
                   <div class="col-md-1">
-                    <a href="{{route('category.sub', ['category' => $activeCategory->name_en, 'subCategory' => $subCategory->name_en])}}">
+                    <a href="{{route('category.sub', ['category' => $data['activeCategory']->name_en, 'subCategory' => $subCategory->name_en])}}">
                       <span class="badge see-more">
                         <h7>More
                           <img src="{{asset('img/icons/right-arrow.png')}}" alt="" style="width:10px; height:10px;">
@@ -66,7 +66,7 @@
             </div>
             <div class="product-slider owl-carousel owl-theme">
 
-              @foreach ($products as $product)
+              @foreach ($data['products'] as $product)
               @if($product->category_sub_product_id==$subCategory->id)
 
               <div class="item">
@@ -142,8 +142,8 @@
             <!-- product view -->
             <div class="row products">
 
-              @foreach ($products->sortByDesc('create_at') as $product)
-              @if($product->category_product_id==$activeCategory->id)
+              @foreach ($data['products']->sortByDesc('create_at') as $product)
+              @if($product->category_product_id==$data['activeCategory']->id)
 
               @include('clientModule.product-collection.product-view')
 

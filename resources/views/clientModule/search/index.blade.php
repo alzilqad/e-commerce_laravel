@@ -35,7 +35,7 @@
         <div class="col-lg-9">
 
           <div class="box" style="padding-left: 30px">
-            <h1>Search results for: '{{$text}}'</h1>
+            <h1>Search results for: '{{$data['text']}}'</h1>
           </div>
 
           <div class="box" style="padding: 30px">
@@ -43,7 +43,7 @@
 
             <div class="row products">
 
-              @foreach ($products->sortByDesc('create_at') as $product)
+              @foreach ($data['products']->sortByDesc('create_at') as $product)
 
               @include('clientModule.product-collection.product-view')
 

@@ -13,7 +13,7 @@
           <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li aria-current="page" class="breadcrumb-item active">{{$page}}</li>
+              <li aria-current="page" class="breadcrumb-item active">{{$data['page']}}</li>
             </ol>
           </nav>
         </div>
@@ -35,7 +35,7 @@
         <div class="col-lg-9">
 
           <div class="box" style="padding-left: 30px">
-            <h1>{{$page}}</h1>
+            <h1>{{$data['page']}}</h1>
           </div>
 
           <div class="box" style="padding: 30px">
@@ -43,7 +43,7 @@
 
             <div class="row products">
 
-              @foreach ($products->sortByDesc('discount') as $product)
+              @foreach ($data['products']->sortByDesc('discount') as $product)
               @if($product->discount > 0)
 
               @include('clientModule.product-collection.product-view')

@@ -6,7 +6,7 @@
     <div class="card-body">
         <ul class="nav nav-pills flex-column category-menu">
 
-            @foreach ($categories as $category)
+            @foreach ($data['categories'] as $category)
             <li>
                 <a for="check{{$category->id}}" href="{{route('category.singular', $category->name_en)}}" class="nav-link">{{$category->name_en}}
                     <!-- <span class="badge badge-primary"> -->
@@ -16,7 +16,7 @@
                     <!-- </span> -->
                 </a>
 
-                @if ($category==$activeCategory)
+                @if ($category==$data['activeCategory'])
                 <input id="check{{$category->id}}" type="checkbox" name="menu" checked />
                 @else
                 <input id="check{{$category->id}}" type="checkbox" name="menu" />
@@ -24,7 +24,7 @@
 
                 <!-- subcategory level 1 -->
                 <ul class="submenu">
-                    @foreach ($subCategories as $subCategory)
+                    @foreach ($data['subCategories'] as $subCategory)
                     @if($subCategory->category_id==$category->id && $subCategory->sub_category_id==0)
                     <li>
                         <a for="check1{{$subCategory->id}}" href="{{route('category.sub', ['category' => $category->name_en, 'subCategory' => $subCategory->name_en])}}" class="nav-link">
@@ -41,7 +41,7 @@
 
                     <!-- subcategory level 2 -->
                     <ul class="submenu">
-                        @foreach ($subCategories as $subCategory2)
+                        @foreach ($data['subCategories'] as $subCategory2)
                         @if($subCategory2->sub_category_id==$subCategory->id)
                         <li style="padding-left:20px;">
                             <a for="check2{{$subCategory->id}}" href="{{route('category.sub2', ['category' => $category->name_en, 'subCategory' => $subCategory->name_en, 'subCategory2' => $subCategory2->name_en])}}" class="nav-link">
@@ -57,7 +57,7 @@
 
                         <!-- subcategory level 3 -->
                         <ul class="submenu">
-                            @foreach ($subCategories as $subCategory3)
+                            @foreach ($data['subCategories'] as $subCategory3)
                             @if($subCategory3->sub_category_id==$subCategory2->id)
                             <li style="padding-left:40px;"><a href="{{route('category.sub3', ['category' => $category->name_en, 'subCategory' => $subCategory->name_en, 'subCategory2' => $subCategory2->name_en, 'subCategory3' => $subCategory3->name_en])}}" class="nav-link">{{$subCategory3->name_en}}</a></li>
                             @endif

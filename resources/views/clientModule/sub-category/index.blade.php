@@ -12,12 +12,25 @@
           <!-- breadcrumb-->
           <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li aria-current="page" class="breadcrumb-item active">{{$activeCategory->name_en}}</li>
-              @if($parentSubCategory!=null)
-              <li aria-current="page" class="breadcrumb-item active">{{$parentSubCategory->name_en}}</li>
+              <li class="breadcrumb-item">
+                <a href="{{route('home.index')}}">Home</a>
+              </li>
+              <li aria-current="page" class="breadcrumb-item active">
+                <a href="{{route('category.singular', $data['activeCategory']->name_en)}}">{{$data['activeCategory']->name_en}}</a>
+              </li>
+              @if($data['parentSubCategory']!=null)
+              <li aria-current="page" class="breadcrumb-item active">
+                <a href="{{route('category.sub', [$data['activeCategory']->name_en, $data['parentSubCategory']->name_en])}}">{{$data['parentSubCategory']->name_en}}</a>
+              </li>
               @endif
-              <li aria-current="page" class="breadcrumb-item active">{{$activeSubCategory->name_en}}</li>
+              @if($data['parentSubCategory2']!=null)
+              <li aria-current="page" class="breadcrumb-item active">
+                <a href="{{route('category.sub2', [$data['activeCategory']->name_en, $data['parentSubCategory']->name_en, $data['parentSubCategory2']->name_en])}}">{{$data['parentSubCategory2']->name_en}}</a>
+              </li>
+              @endif
+              <li aria-current="page" class="breadcrumb-item active">
+                {{$data['activeSubCategory']->name_en}}
+              </li>
             </ol>
           </nav>
         </div>
@@ -36,28 +49,28 @@
 
           <!-- category details -->
           <div class="box" style="padding: 30px">
-            <h1>{{$activeSubCategory->name_en}}</h1>
-            <p>{{$activeSubCategory->description}}</p>
+            <h1>{{$data['activeSubCategory']->name_en}}</h1>
+            <p>{{$data['activeSubCategory']->description}}</p>
 
-            <div class="item"><img src="{{asset($activeSubCategory->cover_image)}}" alt="" class="center" style="height: 400px"></div>
+            <div class="item"><img src="{{asset($data['activeSubCategory']->cover_image)}}" alt="" class="center" style="height: 400px"></div>
 
           </div>
 
           <!-- subcategory product view -->
-          @foreach ($subCategories as $subCategory)
-          @if($subCategory->sub_category_id==$activeSubCategory->id)
+          @foreach ($data['subCategories'] as $subCategory)
+          @if($subCategory->sub_category_id==$data['activeSubCategory']->id)
           <div id="hot">
             <div class="box py-0">
               <div class="container">
                 <div class="row">
-                  @if($parentSubCategory==null)
+                  @if($data['parentSubCategory']==null)
                   <div class="col-md-11">
-                    <a href="{{route('category.sub2', ['category' => $activeCategory->name_en, 'subCategory' => $activeSubCategory->name_en, 'subCategory2' => $subCategory->name_en])}}">
+                    <a href="{{route('category.sub2', ['category' => $data['activeCategory']->name_en, 'subCategory' => $data['activeSubCategory']->name_en, 'subCategory2' => $subCategory->name_en])}}">
                       <h2 class="mb-0">{{$subCategory->name_en}}</h2>
                     </a>
                   </div>
                   <div class="col-md-1">
-                    <a href="{{route('category.sub2', ['category' => $activeCategory->name_en, 'subCategory' => $activeSubCategory->name_en, 'subCategory2' => $subCategory->name_en])}}">
+                    <a href="{{route('category.sub2', ['category' => $data['activeCategory']->name_en, 'subCategory' => $data['activeSubCategory']->name_en, 'subCategory2' => $subCategory->name_en])}}">
                       <span class="badge see-more">
                         <h7>More
                           <img src="{{asset('img/icons/right-arrow.png')}}" alt="" style="width:10px; height:10px;">
@@ -67,12 +80,12 @@
                   </div>
                   @else
                   <div class="col-md-11">
-                    <a href="{{route('category.sub3', ['category' => $activeCategory->name_en, 'subCategory' => $parentSubCategory->name_en, 'subCategory2' => $activeSubCategory->name_en, 'subCategory3' => $subCategory->name_en])}}">
+                    <a href="{{route('category.sub3', ['category' => $data['activeCategory']->name_en, 'subCategory' => $data['parentSubCategory']->name_en, 'subCategory2' => $data['activeSubCategory']->name_en, 'subCategory3' => $subCategory->name_en])}}">
                       <h2 class="mb-0">{{$subCategory->name_en}}</h2>
                     </a>
                   </div>
                   <div class="col-md-1">
-                    <a href="{{route('category.sub3', ['category' => $activeCategory->name_en, 'subCategory' => $parentSubCategory->name_en, 'subCategory2' => $activeSubCategory->name_en, 'subCategory3' => $subCategory->name_en])}}">
+                    <a href="{{route('category.sub3', ['category' => $data['activeCategory']->name_en, 'subCategory' => $data['parentSubCategory']->name_en, 'subCategory2' => $data['activeSubCategory']->name_en, 'subCategory3' => $subCategory->name_en])}}">
                       <span class="badge see-more">
                         <h7>More
                           <img src="{{asset('img/icons/right-arrow.png')}}" alt="" style="width:10px; height:10px;">
@@ -86,8 +99,8 @@
             </div>
             <div class="product-slider owl-carousel owl-theme">
 
-              @foreach ($products as $product)
-              @if($product->category_sub_product_id==$activeSubCategory->id)
+              @foreach ($data['products'] as $product)
+              @if($product->category_sub_product_id==$data['activeSubCategory']->id)
 
               <div class="item">
                 <div class="product">
@@ -159,8 +172,8 @@
             <!-- product view -->
             <div class="row products">
 
-              @foreach ($products->sortByDesc('create_at') as $product)
-              @if($product->category_product_id==$activeCategory->id && $product->category_sub_product_id==$activeSubCategory->id)
+              @foreach ($data['products']->sortByDesc('create_at') as $product)
+              @if($product->category_product_id==$data['activeCategory']->id && $product->category_sub_product_id==$data['activeSubCategory']->id)
 
               @include('clientModule.product-collection.product-view')
 

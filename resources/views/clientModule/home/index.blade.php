@@ -52,7 +52,7 @@
                         <div class="container">
                             <div class="product-slider owl-carousel owl-theme">
 
-                                @foreach ($categories as $category)
+                                @foreach ($data['categories'] as $category)
                                 <div class="item">
                                     <div class="product">
                                         <div class="flip-container">
@@ -103,7 +103,7 @@
                         <div class="container">
                             <div class="product-slider owl-carousel owl-theme">
 
-                                @foreach ($products as $product)
+                                @foreach ($data['products'] as $product)
 
                                 <div class="item">
                                     <div class="product">
@@ -179,7 +179,7 @@
                         </div>
                         <div class="container">
                             <div class="product-slider owl-carousel owl-theme">
-                                @foreach ($products->sortByDesc('discount') as $product)
+                                @foreach ($data['products']->sortByDesc('discount') as $product)
                                 @if($product->discount > 0)
                                 <div class="item">
                                     <div class="product">
@@ -237,7 +237,7 @@
                     </div>
 
                     <!-- category products -->
-                    @foreach ($categories as $category)
+                    @foreach ($data['categories'] as $category)
                     <div id="hot">
                         <div class="box py-0">
                             <div class="container">
@@ -263,7 +263,7 @@
                         <div class="container">
                             <div class="product-slider owl-carousel owl-theme">
 
-                                @foreach ($products as $product)
+                                @foreach ($data['products'] as $product)
                                 @if($product->category_product_id==$category->id)
 
                                 <div class="item">
@@ -338,7 +338,7 @@
                         <!-- product view -->
                         <div class="row products">
 
-                            @foreach ($products->sortByDesc('create_at') as $product)
+                            @foreach ($data['products']->sortByDesc('create_at') as $product)
                             @include('clientModule.product-collection.product-view')
                             @endforeach
 
