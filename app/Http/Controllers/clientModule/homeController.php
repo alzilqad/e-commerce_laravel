@@ -158,7 +158,7 @@ class homeController extends Controller
         return view('clientModule.best-offer.index', compact('data'));
     }
 
-    public function subCategoryPage(Request $req, $category, $subCategory)
+    public function subCategoryPageLevel1(Request $req, $category, $subCategory)
     {
         $categories = Category::all();
         $subCategories = SubCategory::all();
@@ -197,7 +197,7 @@ class homeController extends Controller
         }
     }
 
-    public function subCategoryPage2(Request $req, $category, $subCategory, $subCategory2)
+    public function subCategoryPageLevel2(Request $req, $category, $subCategory, $subCategory2)
     {
         $categories = Category::all();
         $subCategories = SubCategory::all();
@@ -239,7 +239,7 @@ class homeController extends Controller
         }
     }
 
-    public function subCategoryPage3(Request $req, $category, $subCategory, $subCategory2, $subCategory3)
+    public function subCategoryPageLevel3(Request $req, $category, $subCategory, $subCategory2, $subCategory3)
     {
         $categories = Category::all();
         $subCategories = SubCategory::all();

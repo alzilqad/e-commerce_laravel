@@ -26,9 +26,9 @@ Route::get('/new', [homeController::class, 'newArrivalPage'])->name('category.ne
 Route::get('/offer', [homeController::class, 'offerPage'])->name('category.offer');
 Route::get('/category', [homeController::class, 'multipleCategoryPage'])->name('category.multiple');
 Route::get('/shop/{category}', [homeController::class, 'singularCategoryPage'])->name('category.singular');
-Route::get('/shop/{category}/{subCategory}', [homeController::class, 'subCategoryPage'])->name('category.sub');
-Route::get('/shop/{category}/{subCategory}/{subCategory2}', [homeController::class, 'subCategoryPage2'])->name('category.sub2');
-Route::get('/shop/{category}/{subCategory}/{subCategory2}/{subCategory3}', [homeController::class, 'subCategoryPage3'])->name('category.sub3');
+Route::get('/shop/{category}/{subCategory}', [homeController::class, 'subCategoryPageLevel1'])->name('category.sub');
+Route::get('/shop/{category}/{subCategory}/{subCategory2}', [homeController::class, 'subCategoryPageLevel2'])->name('category.sub2');
+Route::get('/shop/{category}/{subCategory}/{subCategory2}/{subCategory3}', [homeController::class, 'subCategoryPageLevel3'])->name('category.sub3');
 
 Route::get('/product/{product}', [productController::class, 'index'])->name('product.index');
 
