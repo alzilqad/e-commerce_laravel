@@ -30,7 +30,7 @@ Route::get('/shop/{category}/{subCategory}', [homeController::class, 'subCategor
 Route::get('/shop/{category}/{subCategory}/{subCategory2}', [homeController::class, 'subCategoryPageLevel2'])->name('category.sub2');
 Route::get('/shop/{category}/{subCategory}/{subCategory2}/{subCategory3}', [homeController::class, 'subCategoryPageLevel3'])->name('category.sub3');
 
-Route::get('/product/{product}', [productController::class, 'index'])->name('product.index');
+Route::get('/product/{id}/{product}', [productController::class, 'index'])->name('product.index');
 
 Route::get('/search', [productController::class, 'searchProductView'])->name('search.index');
 Route::get('/search/sort', [productController::class, 'sortProductView']);

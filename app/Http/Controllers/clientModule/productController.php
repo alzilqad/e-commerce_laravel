@@ -17,12 +17,13 @@ use App\Models\ProductImage;
 class productController extends Controller
 {
 
-    public function index(Request $req, $product)
+    public function index(Request $req, $id, $product)
     {
         $categories = Category::all();
         $subCategories = SubCategory::all();
 
-        $activeProduct = Product::where('products.name_en', '=', $product)
+        $activeProduct = Product::where('products.id', '=', $id)
+            ->where('products.name_en', '=', $product)
             ->first();
 
         $activeProduct->images = ProductImage::where('product_image.product_id', '=', $activeProduct->id)

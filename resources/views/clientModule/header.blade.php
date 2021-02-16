@@ -62,7 +62,15 @@
                                 </div>
                             </div>
                         </form>
-                        <div id="basket-overview" class="navbar-collapse collapse d-none d-lg-block"><a href="basket.html" class="btn btn-primary navbar-btn"><i class="fa fa-shopping-cart"></i><span>3 items in cart</span></a></div>
+
+                        <!-- cart -->
+                        <div id="basket-overview" class="navbar-collapse collapse d-none d-lg-block">
+                            <a href="basket.html" class="btn btn-primary navbar-btn">
+                                <i class="fa fa-shopping-cart"></i>
+                                <span>Cart 3</span>
+                            </a>
+                        </div>
+                        
                     </div>
             </nav>
 
