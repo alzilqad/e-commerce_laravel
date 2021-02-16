@@ -32,7 +32,9 @@ Route::get('/shop/{category}/{subCategory}/{subCategory2}/{subCategory3}', [home
 
 Route::get('/product/{product}', [productController::class, 'index'])->name('product.index');
 
-Route::get('/search', [homeController::class, 'searchProductView'])->name('search.index');
+Route::get('/search', [productController::class, 'searchProductView'])->name('search.index');
+Route::get('/search/sort', [productController::class, 'sortProductView']);
+Route::get('/search/order', [productController::class, 'orderProductView']);
 
 Route::get('/cart', [cartController::class, 'index'])->name('cart.index');
 

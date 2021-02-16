@@ -140,16 +140,12 @@
             @include('clientModule.product-collection.product-topbar')
 
             <!-- product view -->
-            <div class="row products">
+            
 
-              @foreach ($data['products']->sortByDesc('create_at') as $product)
-              @if($product->category_product_id==$data['activeCategory']->id)
-
-              @include('clientModule.product-collection.product-view')
-
-              @endif
-              @endforeach
+            <div id="ProductView">
+              @include('clientModule.product-collection.index')
             </div>
+
             <!-- end product view-->
           </div>
 

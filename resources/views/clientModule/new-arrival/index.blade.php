@@ -40,14 +40,10 @@
           <div class="box" style="padding: 30px">
             @include('clientModule.product-collection.product-topbar')
 
-            <div class="row products">
-
-              @foreach ($data['products']->sortByDesc('create_at') as $product)
-              @include('clientModule.product-collection.product-view')
-              @endforeach
-
-              <!-- /.products-->
+            <div id="ProductView">
+              @include('clientModule.product-collection.index')
             </div>
+
           </div>
 
         </div>

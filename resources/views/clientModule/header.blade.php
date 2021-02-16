@@ -25,6 +25,9 @@
     <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 </head>
 
 <body>
@@ -104,8 +107,10 @@
             </div>
         </div> -->
 
+
+
         <button onclick="topFunction()" id="toTopBtn" title="Go to top">
-                <img src="{{asset('img/icons/up-arrow.png')}}" alt="" style="width:30px; height:30px;">
+            <img src="{{asset('img/icons/up-arrow.png')}}" alt="" style="width:30px; height:30px;">
         </button>
 
     </header>

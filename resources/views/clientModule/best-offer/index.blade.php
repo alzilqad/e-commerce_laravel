@@ -41,17 +41,12 @@
           <div class="box" style="padding: 30px">
             @include('clientModule.product-collection.product-topbar')
 
-            <div class="row products">
+            
 
-              @foreach ($data['products']->sortByDesc('discount') as $product)
-              @if($product->discount > 0)
+              <div id="ProductView">
+                @include('clientModule.product-collection.index')
+              </div>
 
-              @include('clientModule.product-collection.product-view')
-
-              @endif
-              @endforeach
-              <!-- /.products-->
-            </div>
           </div>
 
         </div>

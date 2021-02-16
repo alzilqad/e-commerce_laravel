@@ -87,4 +87,26 @@ h7,
     background-color: #555; /* Add a dark-grey background on hover */
   }
 
-  
+
+  .up-arrow {
+    width: 0;
+    height: 0;
+    border: solid 5px transparent;
+    background: transparent;
+    border-bottom: solid 10px black;
+    border-top-width: 0;
+    cursor: pointer;
+    opacity: 0.5;
+}
+
+.down-arrow {
+    width: 0;
+    height: 0;
+    border: solid 5px transparent;
+    background: transparent;
+    border-top: solid 10px black;
+    border-bottom-width: 0;
+    margin-top:1px;
+    cursor: pointer;
+    opacity: 1;
+}

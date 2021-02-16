@@ -336,12 +336,8 @@
                         @include('clientModule.product-collection.product-topbar')
 
                         <!-- product view -->
-                        <div class="row products">
-
-                            @foreach ($data['products']->sortByDesc('create_at') as $product)
-                            @include('clientModule.product-collection.product-view')
-                            @endforeach
-
+                        <div id="ProductView">
+                            @include('clientModule.product-collection.index')
                         </div>
                         <!-- end product view-->
                     </div>
