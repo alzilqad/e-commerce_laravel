@@ -6,40 +6,7 @@
     <div class="container">
         <div class="row">
 
-            <!-- /.col-lg-3-->
-            <div class="col-lg-3 col-md-6">
-                <h4 class="mb-3">Top categories</h4>
-                <h5>Men</h5>
-                <ul class="list-unstyled">
-                    <li><a href="category.html">T-shirts</a></li>
-                    <li><a href="category.html">Shirts</a></li>
-                    <li><a href="category.html">Accessories</a></li>
-                </ul>
-                <h5>Ladies</h5>
-                <ul class="list-unstyled">
-                    <li><a href="category.html">T-shirts</a></li>
-                    <li><a href="category.html">Skirts</a></li>
-                    <li><a href="category.html">Pants</a></li>
-                    <li><a href="category.html">Accessories</a></li>
-                </ul>
-            </div>
-
-            <div class="col-lg-3 col-md-6">
-                <br><br>
-                <h5>Men</h5>
-                <ul class="list-unstyled">
-                    <li><a href="category.html">T-shirts</a></li>
-                    <li><a href="category.html">Shirts</a></li>
-                    <li><a href="category.html">Accessories</a></li>
-                </ul>
-                <h5>Ladies</h5>
-                <ul class="list-unstyled">
-                    <li><a href="category.html">T-shirts</a></li>
-                    <li><a href="category.html">Skirts</a></li>
-                    <li><a href="category.html">Pants</a></li>
-                    <li><a href="category.html">Accessories</a></li>
-                </ul>
-            </div>
+            
 
 
             <!-- /.col-lg-3-->
@@ -99,5 +66,6 @@
 <script src="{{asset('js/front.js')}}"></script>
 <script src="{{asset('js/scroll.js')}}"></script>
 <script src="{{asset('js/filter.js')}}"></script>
+<script src="{{asset('js/cart.js')}}"></script>
 
 </body>

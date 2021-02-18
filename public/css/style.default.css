@@ -94,6 +94,7 @@ h1 {
 
 @media (max-width: 991.98px) {
   #top {
+    margin-top: 25px;
     font-size: 0.738rem;
     text-align: center;
   }
@@ -278,7 +279,7 @@ h1 {
   background: #fff;
   border-radius: 0;
   padding: 0.5rem 1rem;
-  padding-top: 20px;
+  padding-top: 35px;
 }
 
 /*

@@ -33,10 +33,16 @@ Route::get('/shop/{category}/{subCategory}/{subCategory2}/{subCategory3}', [home
 Route::get('/product/{id}/{product}', [productController::class, 'index'])->name('product.index');
 
 Route::get('/search', [productController::class, 'searchProductView'])->name('search.index');
+//ajax sort and order to filter products
 Route::get('/search/sort', [productController::class, 'sortProductView']);
 Route::get('/search/order', [productController::class, 'orderProductView']);
 
 Route::get('/cart', [cartController::class, 'index'])->name('cart.index');
+//ajax crud on cart
+Route::get('/cart/create', [cartController::class, 'addCartProduct']);
+Route::get('/cart/update', [cartController::class, 'modifyCartProduct']);
+Route::get('/cart/read', [cartController::class, 'viewCartProduct']);
+Route::get('/cart/delete', [cartController::class, 'removeCartProduct']);
 
 Route::get('/user', [userController::class, 'profile'])->name('user.profile');
 Route::get('/order', [userController::class, 'order'])->name('user.order');

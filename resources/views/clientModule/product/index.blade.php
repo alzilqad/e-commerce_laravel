@@ -80,6 +80,7 @@
             </div>
           </div>
 
+          <!-- 
           <div class="row same-height-row">
             <div class="col-md-3 col-sm-6">
               <div class="box same-height" style="padding: 30px">
@@ -99,7 +100,6 @@
                   <p class="price">$143</p>
                 </div>
               </div>
-              <!-- /.product-->
             </div>
             <div class="col-md-3 col-sm-6">
               <div class="product same-height">
@@ -114,7 +114,6 @@
                   <p class="price">$143</p>
                 </div>
               </div>
-              <!-- /.product-->
             </div>
             <div class="col-md-3 col-sm-6">
               <div class="product same-height">
@@ -129,7 +128,6 @@
                   <p class="price">$143</p>
                 </div>
               </div>
-              <!-- /.product-->
             </div>
           </div>
           <div class="row same-height-row">
@@ -151,7 +149,6 @@
                   <p class="price">$143</p>
                 </div>
               </div>
-              <!-- /.product-->
             </div>
             <div class="col-md-3 col-sm-6">
               <div class="product same-height">
@@ -166,7 +163,6 @@
                   <p class="price">$143</p>
                 </div>
               </div>
-              <!-- /.product-->
             </div>
             <div class="col-md-3 col-sm-6">
               <div class="product same-height">
@@ -181,9 +177,10 @@
                   <p class="price">$143</p>
                 </div>
               </div>
-              <!-- /.product-->
             </div>
           </div>
+           -->
+
         </div>
         <!-- /.col-md-9-->
       </div>

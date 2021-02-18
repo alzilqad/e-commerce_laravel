@@ -1,4 +1,5 @@
 $(function () {
+
     $(".shop-detail-carousel").owlCarousel({
         items: 1,
         thumbs: true,
@@ -209,3 +210,12 @@ $.fn.alignElementsSameHeight = function () {
         children.innerHeight(maxHeight);
     });
 };
+
+
+//cart toggle
+
+// (function() {
+//     $("#cart").on("click", function() {
+//         $(".shopping-cart").fadeToggle("fast");
+//     });
+// })();

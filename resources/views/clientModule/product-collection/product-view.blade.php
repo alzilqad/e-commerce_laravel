@@ -25,7 +25,10 @@
                 @endif
                 ${{$product->buying_price}}
             </p>
-            <p class="buttons"><a href="{{route('product.index', ['id' => $product->id, 'product' => $product->name_en])}}" class="btn btn-outline-secondary">View detail</a><a href="basket.html" class="btn btn-primary"><i class="fa fa-shopping-cart"></i>Add to cart</a></p>
+            <p class="buttons">
+                <a href="{{route('product.index', ['id' => $product->id, 'product' => $product->name_en])}}" class="btn btn-outline-secondary">View detail</a>
+                <a href="" id="cartButton" class="btn btn-primary" onclick="addToCart('{{$product->id}}', event)"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+            </p>
         </div>
         <!-- /.text-->
 
