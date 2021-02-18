@@ -46,7 +46,7 @@ class productController extends Controller
             'parentSubCategory2' => null,
         ];
 
-        return view('clientModule.product.index', compact('data'));
+        return view('clientModule.pages.product.index', compact('data'));
     }
 
     public function searchProductView(Request $req)
@@ -82,7 +82,7 @@ class productController extends Controller
             'parentSubCategory2' => null,
         ];
 
-        return view('clientModule.search.index', compact('data'));
+        return view('clientModule.pages.search.index', compact('data'));
     }
 
     public function sortProductView(Request $req)

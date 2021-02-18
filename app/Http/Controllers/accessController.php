@@ -13,7 +13,7 @@ class accessController extends Controller
 
     public function showRegisterPage(Request $req)
     {
-        return view('clientModule.register.index');
+        return view('clientModule.pages.register.index');
     }
 
     public function registerUser()

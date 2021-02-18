@@ -8,19 +8,19 @@ use Illuminate\Http\Request;
 class userController extends Controller
 {
     public function profile(Request $req){
-        return view('clientModule.user.profile');
+        return view('clientModule.pages.user.profile');
     }
 
     public function order(Request $req){
-        return view('clientModule.user.order');
+        return view('clientModule.pages.user.order');
     }
 
     public function orders(Request $req){
-        return view('clientModule.user.orders');
+        return view('clientModule.pages.user.orders');
     }
 
     public function wishlist(Request $req){
-        return view('clientModule.user.wishlist');
+        return view('clientModule.pages.user.wishlist');
     }
 
 }

@@ -43,7 +43,7 @@ class homeController extends Controller
             'parentSubCategory2' => null,
         ];
 
-        return view('clientModule.home.index', compact('data'));
+        return view('clientModule.pages.home.index', compact('data'));
     }
         
     public function newArrivalPage(Request $req)
@@ -76,7 +76,7 @@ class homeController extends Controller
             'page' => "New Arrival"
         ];
 
-        return view('clientModule.new-arrival.index', compact('data'));
+        return view('clientModule.pages.new-arrival.index', compact('data'));
     }
 
     public function offerPage(Request $req)
@@ -110,7 +110,7 @@ class homeController extends Controller
             'page' => "Best Offer"
         ];
 
-        return view('clientModule.best-offer.index', compact('data'));
+        return view('clientModule.pages.best-offer.index', compact('data'));
     }
 
     public function multipleCategoryPage(Request $req)
@@ -142,7 +142,7 @@ class homeController extends Controller
             'parentSubCategory2' => null,
         ];
 
-        return view('clientModule.category.category-multiple', compact('data'));
+        return view('clientModule.pages.category.category-multiple', compact('data'));
     }
 
     public function singularCategoryPage(Request $req, $category)
@@ -180,7 +180,7 @@ class homeController extends Controller
         ];
 
         if ($activeCategory != null) {
-            return view('clientModule.category.category', compact('data'));
+            return view('clientModule.pages.category.category', compact('data'));
         } else {
             return back();
         }
@@ -226,7 +226,7 @@ class homeController extends Controller
         ];
 
         if ($activeSubCategory != null) {
-            return view('clientModule.sub-category.index', compact('data'));
+            return view('clientModule.pages.sub-category.index', compact('data'));
         } else {
             return back();
         }
@@ -276,7 +276,7 @@ class homeController extends Controller
         ];
 
         if ($activeSubCategory != null) {
-            return view('clientModule.sub-category.index', compact('data'));
+            return view('clientModule.pages.sub-category.index', compact('data'));
         } else {
             return back();
         }
@@ -330,7 +330,7 @@ class homeController extends Controller
         ];
 
         if ($activeSubCategory != null) {
-            return view('clientModule.sub-category.index', compact('data'));
+            return view('clientModule.pages.sub-category.index', compact('data'));
         } else {
             return back();
         }
