@@ -36,12 +36,8 @@
         </div>
 
         <!-- *** MENUS AND FILTERS *** -->
-        <div class="col-lg-2" style="padding-left: 30px">
-
-          <!-- Category -->
-          @include('clientModule.components.sidebar.sidebar')
-
-        </div>
+        <!-- Category -->
+        @include('clientModule.components.sidebar.sidebar')
         <!-- *** MENUS AND FILTERS END ***-->
 
 
@@ -174,7 +170,7 @@
             <div id="ProductView">
               @include('clientModule.components.product-collection.condition')
             </div>
-            
+
             <!-- end product view-->
           </div>
 

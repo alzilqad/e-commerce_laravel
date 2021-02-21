@@ -18,17 +18,10 @@
           </nav>
         </div>
 
-        <div class="col-lg-2" style="padding-left: 30px">
-          <!--
-              *** MENUS AND FILTERS ***
-              _________________________________________________________
-              -->
-
-          <!-- Category -->
-          @include('clientModule.components.sidebar.sidebar')
-
-          <!-- *** MENUS AND FILTERS END ***-->
-        </div>
+        <!-- *** MENUS AND FILTERS *** -->
+        <!-- Category -->
+        @include('clientModule.components.sidebar.sidebar')
+        <!-- *** MENUS AND FILTERS END ***-->
 
 
         <div class="col-lg-10">

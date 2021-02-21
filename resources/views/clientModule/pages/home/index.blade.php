@@ -18,10 +18,10 @@
                     <!-- /#main-slider-->
                 </div>
 
-                <!-- left bar for category navigation -->
-                <div class="col-lg-2" style="padding-left: 30px">
-                    @include('clientModule.components.sidebar.sidebar')
-                </div>
+                <!-- *** MENUS AND FILTERS *** -->
+                <!-- Category -->
+                @include('clientModule.components.sidebar.sidebar')
+                <!-- *** MENUS AND FILTERS END ***-->
 
                 <!-- right bar for product navigation -->
                 <div class="col-lg-10">

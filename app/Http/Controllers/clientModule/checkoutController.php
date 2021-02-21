@@ -1,24 +1,25 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\clientModule;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\URL;
+
+use stdClass;
 
 use App\Models\Category;
 use App\Models\SubCategory;
+use App\Models\Product;
+use App\Models\ProductImage;
 
-class accessController extends Controller
+class checkoutController extends Controller
 {
-    public function login()
-    {
-        
-    }
-
-    public function showRegisterPage(Request $req)
+    public function index(Request $req)
     {
         $categories = Category::all();
         $subCategories = SubCategory::all();
-        
+
         $data = [
             'categories' => $categories,
             'subCategories' => $subCategories,
@@ -29,11 +30,6 @@ class accessController extends Controller
             'parentSubCategory2' => null,
         ];
 
-        return view('clientModule.pages.register.index', compact('data'));
-    }
-
-    public function registerUser()
-    {
-
+        return view('clientModule.pages.checkout.checkout2', compact('data'));
     }
 }

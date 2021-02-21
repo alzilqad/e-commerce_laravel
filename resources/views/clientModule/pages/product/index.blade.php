@@ -17,14 +17,11 @@
           </nav>
         </div>
 
-        <div class="col-lg-2" style="padding-left: 30px">
+        <!-- *** MENUS AND FILTERS *** -->
+        <!-- Category -->
+        @include('clientModule.components.sidebar.sidebar')
+        <!-- *** MENUS AND FILTERS END ***-->
 
-          <!-- Category -->
-          @include('clientModule.components.sidebar.sidebar')
-
-          <!-- *** MENUS AND FILTERS END ***-->
-
-        </div>
         <div class="col-lg-10 order-1 order-lg-2">
           <div id="productMain" class="row">
             <div class="col-md-6">
