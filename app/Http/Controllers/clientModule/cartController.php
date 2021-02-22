@@ -49,6 +49,7 @@ class cartController extends Controller
         return view('clientModule.pages.cart.index', compact('data'));
     }
 
+    //ajax
     public function addCartProduct(Request $req)
     {
         $isExistInCart = false;

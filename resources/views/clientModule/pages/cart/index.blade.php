@@ -17,7 +17,7 @@
 
       <!-- *** MENUS AND FILTERS *** -->
       <!-- Category -->
-      @include('clientModule.components.sidebar.sidebar')
+      @include('clientModule.components.sidebar.category-bar')
       <!-- *** MENUS AND FILTERS END ***-->
 
       <div id="basket" class="col-lg-10">
@@ -84,7 +84,7 @@
           <div class="box-footer d-flex justify-content-between flex-column flex-lg-row">
             <div class="left"><a href="{{url()->previous()}}" class="btn btn-outline-secondary"><i class="fa fa-chevron-left"></i> Continue shopping</a></div>
             <div class="right">
-              <a href="{{route('checkout.index')}}" type="submit" class="btn btn-primary">Proceed to checkout <i class="fa fa-chevron-right"></i></a>
+              <a href="{{route('checkout.delivery')}}" type="submit" class="btn btn-primary">Proceed to checkout <i class="fa fa-chevron-right"></i></a>
             </div>
           </div>
         </div>

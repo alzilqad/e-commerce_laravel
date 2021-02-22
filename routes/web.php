@@ -48,8 +48,12 @@ Route::get('/cart/delete', [cartController::class, 'removeCartProduct']);
 
 
 //checkout
-Route::get('/checkout', [checkoutController::class, 'index'])->name('checkout.index');
+Route::get('/checkout-delivery', [checkoutController::class, 'delivery'])->name('checkout.delivery');
+Route::get('/checkout-address', [checkoutController::class, 'address'])->name('checkout.address');
+Route::get('/checkout-payment', [checkoutController::class, 'payment'])->name('checkout.payment');
+Route::get('/checkout-review', [checkoutController::class, 'review'])->name('checkout.review');
 
+Route::get('/checkout/getdistrict', [checkoutController::class, 'getDistrictArray']);
 
 //access
 Route::get('/registration', [accessController::class, 'showRegisterPage'])->name('register.index');

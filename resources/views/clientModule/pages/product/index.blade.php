@@ -19,7 +19,7 @@
 
         <!-- *** MENUS AND FILTERS *** -->
         <!-- Category -->
-        @include('clientModule.components.sidebar.sidebar')
+        @include('clientModule.components.sidebar.category-bar')
         <!-- *** MENUS AND FILTERS END ***-->
 
         <div class="col-lg-10 order-1 order-lg-2">

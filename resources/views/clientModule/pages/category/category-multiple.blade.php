@@ -20,7 +20,7 @@
 
         <!-- *** MENUS AND FILTERS *** -->
         <!-- Category -->
-        @include('clientModule.components.sidebar.sidebar')
+        @include('clientModule.components.sidebar.category-bar')
         <!-- *** MENUS AND FILTERS END ***-->
 
 
