@@ -1,10 +1,10 @@
 <!-- Category -->
-<div class="col-lg-2" style="padding-left: 20px; padding-right: 20px">
+<div class="col-lg-2 col-md-12" style="padding-left: 20px; padding-right: 20px;">
     <div class="card sidebar-menu mb-4" style="height: calc(100% - 30px);">
         <div class="card-header">
             <h3 class="h4 card-title">Categories</h3>
         </div>
-        <div class="card-body">
+        <div class="card-body" style=" overflow: auto;">
             <ul class="nav nav-pills flex-column category-menu">
 
                 @foreach ($data['categories'] as $category)

@@ -15,6 +15,8 @@ function addToCart(id, event) {
         success: function (response) {
             if (response) {
                 $("#topbar").load(response + " #topbar");
+                $("#cart-content").load(response + " #cart-content");
+                // $("#cart-Modal").modal("hide");
             }
         },
     });

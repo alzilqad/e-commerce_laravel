@@ -280,6 +280,7 @@ h1 {
   border-radius: 0;
   padding: 0.5rem 1rem;
   padding-top: 35px;
+  font-size: 1rem;
 }
 
 /*
@@ -3031,4 +3032,33 @@ code {
 
 .dropdown-item.disabled, .dropdown-item:disabled {
   color: #6c757d;
+}
+
+
+/* Tooltip for nav options */
+
+.tooltip{
+  border-bottom: 1px solid #e6e6e6;
+  background-color: #fff;
+}
+
+.tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+  top: 100%;
+  left: 50%;
+  margin-left: -60px;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
 }

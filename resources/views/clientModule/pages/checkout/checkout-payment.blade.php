@@ -20,7 +20,7 @@
       @include('clientModule.components.sidebar.category-bar')
 
       <div id="checkout" class="col-lg-7">
-        <div class="box">
+      <div class="box" style="padding: 20px">
           <form method="get" action="{{route('checkout.review')}}">
             <h1>Checkout - Payment method</h1>
             <div class="nav flex-column flex-sm-row nav-pills">
@@ -40,32 +40,25 @@
             <div class="content py-3">
               <div class="row">
                 <div class="col-md-6">
-                  <div class="box payment-method">
-                    <h4>Paypal</h4>
-                    <p>We like it all.</p>
+                  <div class="box payment-method" style="text-align: center; padding-top: 20px">
+                    <h4 style="font-size: 25px">Cash on Delivery</h4>
+                    <p style="height: 50px">You pay when you get it</p>
                     <div class="box-footer text-center">
-                      <input type="radio" name="payment" value="payment1">
+                      <input type="radio" name="payment" value="cash" checked>
                     </div>
                   </div>
                 </div>
                 <div class="col-md-6">
-                  <div class="box payment-method">
-                    <h4>Payment gateway</h4>
-                    <p>VISA and Mastercard only.</p>
+                  <div class="box payment-method" style="text-align: center; padding-top: 20px">
+                    <h4 style="font-size: 25px">Payment Gateway</h4>
+                    <p style="height: 50px">bKash/Nagad/Rocket <br> VISA/Master/Debit/Credit Card</p>
                     <div class="box-footer text-center">
-                      <input type="radio" name="payment" value="payment2">
+                    <input type="radio" disabled>
+                      <!-- <input type="radio" name="payment" value="payment2"> -->
                     </div>
                   </div>
                 </div>
-                <div class="col-md-6">
-                  <div class="box payment-method">
-                    <h4>Cash on delivery</h4>
-                    <p>You pay when you get it.</p>
-                    <div class="box-footer text-center">
-                      <input type="radio" name="payment" value="payment3">
-                    </div>
-                  </div>
-                </div>
+                
               </div>
               <!-- /.row-->
             </div>

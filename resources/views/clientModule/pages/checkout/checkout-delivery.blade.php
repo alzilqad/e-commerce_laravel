@@ -41,7 +41,7 @@
               <div class="row">
                 <div class="col-md-6">
                   <div class="box shipping-method" style="text-align: center; padding-top: 20px">
-                    <h4>Courier Delivery</h4>
+                    <h4 style="font-size: 25px">Courier Delivery</h4>
                     <p>Get it on the nearest Courier service.</p>
                     <div class="box-footer text-center">
                       <input type="radio" name="delivery" value="courier">
@@ -50,7 +50,7 @@
                 </div>
                 <div class="col-md-6">
                   <div class="box shipping-method" style="text-align: center; padding-top: 20px">
-                    <h4>Home Delivery</h4>
+                    <h4 style="font-size: 25px">Home Delivery</h4>
                     <p>Get it on next day - fastest option possible.</p>
                     <div class="box-footer text-center">
                       <input type="radio" name="delivery" value="home">

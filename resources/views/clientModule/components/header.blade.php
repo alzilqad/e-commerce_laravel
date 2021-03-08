@@ -27,62 +27,31 @@
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
 
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 </head>
 
 <body>
     <!-- navbar-->
-    <header class="header mb-5">
+    <header id="header" class="header mb-5">
         <!--
       *** TOPBAR ***
       _________________________________________________________
       -->
         <div id="topbar">
+
             <div class="fixed-top">
-                @include('clientModule.components.topbar.topbar')
-
-                <!-- cart items -->
-                <!-- <div id="cartContainer" class="container">
-                <div id="cartDropdown" class="shopping-cart">
-                    @if (Session::has('cart'))
-                    <div class="shopping-cart-header">
-                        <i class="fa fa-shopping-cart cart-icon"></i>
-                        <span class="cart-badge-invert">
-                            @if (Session::has('cart'))
-                            {{count(Session::get('cart'))}}
-                            @else
-                            0
-                            @endif
-                        </span>
-                        <div class="shopping-cart-total">
-                            <span class="lighter-text">Total:</span>
-                            <span class="main-color-text">$2,229.97</span>
-                        </div>
-                    </div>
-
-                    <div style="overflow-y: scroll; height: 250px">
-                        <ul class="shopping-cart-items">
-                            @foreach(Session::get('cart') as $cartItem)
-                            <li class="clearfix">
-                                <img src="{{$cartItem['image']}}" alt="item1" style="width:50px; height:50px" />
-                                <span class="item-name">{{$cartItem['name']}}</span>
-                                <span class="item-price">Price: BDT {{$cartItem['price']*$cartItem['quantity']}}</span>
-                                <span class="item-quantity">Quantity: {{$cartItem['quantity']}}</span>
-                            </li>
-                            @endforeach
-                        </ul>
-                    </div>
-
-                    <a href="{{route('cart.index')}}" class="button1">Checkout</a>
-                    @endif
-                </div>
-            </div> -->
-
+                @include('clientModule.components.navbar.top-bar')
             </div>
 
-            @include('clientModule.components.topbar.login-modal')
-            @include('clientModule.components.topbar.cart-modal')
+            <div class="fixed-bottom">
+                @include('clientModule.components.navbar.bottom-bar')
+            </div>
+
+            @include('clientModule.components.modal.login-modal')
+
+            @include('clientModule.components.modal.cart-modal')
 
         </div>
 

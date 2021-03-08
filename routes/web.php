@@ -57,7 +57,9 @@ Route::get('/checkout/getdistrict', [checkoutController::class, 'getDistrictArra
 
 //access
 Route::get('/registration', [accessController::class, 'showRegisterPage'])->name('register.index');
-
+Route::get('/login', [accessController::class, 'showLoginPage'])->name('login.index');
+Route::get('/login/user', [accessController::class, 'loginUser'])->name('login.user');
+Route::get('/logout/user', [accessController::class, 'logoutUser'])->name('logout.user');
 
 //user
 Route::get('/user', [userController::class, 'profile'])->name('user.profile');

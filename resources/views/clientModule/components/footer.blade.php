@@ -5,7 +5,6 @@
 <div id="footer">
     <div class="container">
         <div class="row">
-
             <!-- /.col-lg-3-->
             <div class="col-lg-3 col-md-6">
                 <h4 class="mb-3">Top categories</h4>
@@ -106,44 +105,89 @@
 <script src="{{asset('js/scroll.js')}}"></script>
 <script src="{{asset('js/filter.js')}}"></script>
 <script src="{{asset('js/cart.js')}}"></script>
+<script src="{{asset('js/checkout.js')}}"></script>
 
 <script>
-    $('#division').on('change', function() {
-        if (this.value != "") {
-            $('#district').prop('disabled', false);
-            $("#district")
-                .find('option')
-                .remove()
-                .end()
-                .append('<option value=""> </option>');
+    function verifyUser() {
+        var username = document.getElementsByName("username")[0].value;
+        var password = document.getElementsByName("password")[0].value;
+        // alert(username + password);
+        $.ajaxSetup({
+            headers: {
+                "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
+            },
+        });
+        $.ajax({
+            type: "GET",
+            url: "/login/user",
+            datatype: "json",
+            data: {
+                id: username,
+                pass: password
+            },
+            success: function(response) {
+                if (response) {
+                    console.log(response);
+                    // $("#topbar").load(response + " #topbar");
+                    // $("#navigation").load(response + " #navigation");
 
+                    // document.getElementById('login-modal').setAttribute("aria-hidden", "ture");
 
-            $.ajaxSetup({
-                headers: {
-                    "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
-                },
-            });
-            $.ajax({
-                type: "GET",
-                url: "/checkout/getdistrict",
-                datatype: "json",
-                data: {
-                    division: this.value,
-                },
-                success: function(response) {
-                    if (response) {
-                        // alert(response[0]);
-                        for (i = 0; i < response.length; i++) {
-                            // console.log(response[i]);
-                            $("#district").append('<option value="'+response[i]+'">' + response[i] + '</option>');
-                        }
-                    }
-                },
-            });
-        } else {
-            $('#district').prop('disabled', 'disabled');
+                    // $('#login-modal').attr("aria-hidden", "false")
+                }
+            },
+        });
+    }
+</script>
+
+<script>
+    var currentPageId = "page-home";
+    var currentSelectorId = "home";
+
+    //Function for getting the button ids
+    function getButtons() {
+        //List of button ids
+        var list = ["home", "feed", "create", "account"];
+        return list;
+    }
+
+    //Make sure the window is loaded before we add listeners
+    window.onload = function() {
+        var pageIdList = getButtons();
+        //Add an event listener to each button
+        pageIdList.forEach(function(page) {
+            document.getElementById(page).addEventListener("click", changePage, false);
+        });
+    }
+
+    function changePage() {
+        var currentSelector = document.getElementById(currentSelectorId);
+        var currentPage = document.getElementById(currentPageId);
+        var pageId = "page-" + this.id;
+        var page = document.getElementById(pageId);
+        var pageSelector = document.getElementById(this.id);
+
+        if (page.classList.contains("active")) {
+            return;
         }
-    });
+
+        currentSelector.classList.remove("button-active");
+        currentSelector.classList.add("button-inactive");
+        currentPage.classList.remove("active");
+        currentPage.classList.add("inactive");
+
+        pageSelector.classList.remove("button-inactive");
+        pageSelector.classList.add("button-active");
+
+        page.classList.remove("inactive");
+        page.classList.add("active");
+
+        //Need to reset the scroll
+        window.scrollTo(0, 0);
+
+        currentSelectorId = this.id;
+        currentPageId = pageId;
+    }
 </script>
 
 </body>

@@ -45,8 +45,9 @@
                       <th colspan="2">Product</th>
                       <th>Quantity</th>
                       <th>Unit price</th>
+                      <th>Sub Total</th>
                       <th>Discount</th>
-                      <th>Total</th>
+                      <th colspan="2">Total</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -57,14 +58,6 @@
                       <td>$123.00</td>
                       <td>$0.00</td>
                       <td>$246.00</td>
-                    </tr>
-                    <tr>
-                      <td><a href="#"><img src="img/basketsquare.jpg" alt="Black Blouse Armani"></a></td>
-                      <td><a href="#">Black Blouse Armani</a></td>
-                      <td>1</td>
-                      <td>$200.00</td>
-                      <td>$0.00</td>
-                      <td>$200.00</td>
                     </tr>
                   </tbody>
                   <tfoot>

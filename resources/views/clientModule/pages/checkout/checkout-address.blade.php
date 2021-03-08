@@ -20,7 +20,7 @@
       @include('clientModule.components.sidebar.category-bar')
 
       <div id="checkout" class="col-lg-7">
-        <div class="box">
+      <div class="box" style="padding: 20px">
           <form method="get" action="{{route('checkout.payment')}}">
             <h1>Checkout - Address</h1>
             <div class="nav flex-column flex-sm-row nav-pills">

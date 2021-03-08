@@ -6,8 +6,6 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\URL;
 
-use stdClass;
-
 use App\Models\Category;
 use App\Models\SubCategory;
 use App\Models\Product;
